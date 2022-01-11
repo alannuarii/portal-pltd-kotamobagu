@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+
+    <!-- Start Sidebar  -->
+    <%- include('../partials/sidebar') %>
+    <!-- End Sidebar  -->
+
+    <!-- AWAL INPUT  -->
+    <main id="main" class="main">
+      
+      <!-- <div class="pagetitle">
+      <h1>Form Input Data</h1>
+      </div>End Page Title -->
+      <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Form Input Data</h5>
+              <!-- General Form Elements -->
+              <form class="row g-3" method="post" action="/">
+                <div class="col-md-7">
+                  <label class="form-label">Periode Data</label>
+                  <input type="month" class="form-control me-2" id="periodeData" name="periodeData" required/>
+                </div>
+                <div class="col-md-6">
+                  <label class="mb-2" for="unit">Nama Unit</label>
+                    <div class="input-group">
+                      <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" id="namaUnit" name="namaUnit" required>
+                        <option selected disabled>Masukkan Nama Unit</option>
+                        <option value="PLTD Kotamobagu #1">PLTD Kotamobagu #1</option>
+                        <option value="PLTD Kotamobagu #2">PLTD Kotamobagu #2</option>
+                        <option value="PLTD Kotamobagu #3">PLTD Kotamobagu #3</option>
+                        <option value="PLTD Kotamobagu #4">PLTD Kotamobagu #4</option>
+                        <option value="PLTD Kotamobagu #5">PLTD Kotamobagu #5</option>
+                        <option value="PLTD Kotamobagu #6">PLTD Kotamobagu #6</option>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label">Daya Terpasang</label>
+                  <input type="number" id="dayaTerpasang" class="form-control" name="dayaTerpasang">
+                </div> 
+                
+                <div class="col-md-3">
+                  <label class="form-label">Daya Mampu</label>
+                  <input type="number" class="form-control" id="dayaMampu" name="dayaMampu">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Produksi</label>
+                  <input type="number" class="form-control" id="produksi" name="produksi" placeholder="Masukkan produksi dalam satuan kWh" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Plan Outage (PO)</label>
+                  <input type="number" class="form-control" id="po" name="po" placeholder="Masukkan durasi PO dalam satuan jam" required>
+                </div> 
+
+                <div class="col-md-6">
+                  <label class="form-label">PS Sentral</label>
+                  <input type="number" class="form-control" id="psSentral" name="psSentral" placeholder="Masukkan PS sentral dalam satuan kWh" required>
+                </div>
+                
+                <div class="col-md-6">
+                  <label class="form-label">Maintenance Outage (MO)</label>
+                  <input type="number" class="form-control" id="mo" name="mo" placeholder="Masukkan durasi MO dalam satuan jam" required>
+                </div> 
+
+                <div class="col-md-6">
+                  <label class="form-label">PS Trafo</label>
+                  <input type="number" class="form-control" id="psTrafo" name="psTrafo" placeholder="Masukkan PS trafo dalam satuan kWh" required>
+                </div> 
+
+                <div class="col-md-6">
+                  <label class="form-label">Force Outage (FO)</label>
+                  <input type="number" class="form-control" id="fo" name="fo" placeholder="Masukkan durasi FO dalam satuan jam" required>
+                </div> 
+
+                <div class="col-md-6">
+                  <label class="form-label">Pemakaian Bahan Bakar</label>
+                  <input type="number" class="form-control" id="pemakaianBBM" name="pemakaianBBM" placeholder="Masukkan pemakaian bahan bakar dalam satuan liter" required>
+                </div> 
+                
+                <div class="col-md-6">
+                  <label class="form-label">Service Hour (SH)</label>
+                  <input type="number" class="form-control" id="sh" name="sh" placeholder="Masukkan durasi SH dalam satuan jam" required>
+                </div>
+                
+                <div class="col-md-6">
+                  <label class="form-label">Jumlah Trip Internal</label>
+                  <input type="number" class="form-control" id="tripin" name="tripin" placeholder="Masukkan jumlah trip internal" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Period Hour (PH)</label>
+                  <input type="number" class="form-control" id="ph" name="ph" placeholder="Masukkan durasi PH dalam satuan jam" required>
+                </div>
+                
+                <div class="col-md-6">
+                  <label class="form-label">Jumlah Trip Eksternal</label>
+                  <input type="number" class="form-control" id="tripex" name="tripex" placeholder="Masukkan jumlah trip eksternal" required>
+                </div>
+
+                  <div><h6 class="derating">Data Derating (Jam)</h6></div>
+                <div class="col-md-3">
+                  <label class="form-label">EPDH</label>
+                  <input type="number" class="form-control" id="epdh" name="epdh" placeholder="Masukkan EPDH" required>
+                </div> 
+                
+                <div class="col-md-3">
+                  <label class="form-label">EUDH</label>
+                  <input type="number" class="form-control" id="eudh" name="eudh" placeholder="Masukkan EUDH" required>
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label">ESDH</label>
+                  <input type="number" class="form-control" id="esdh" name="esdh" placeholder="Masukkan ESDH" required>
+                </div>
+                
+                <div class="col-md-3">
+                  <label class="form-label">EFDHRS</label>
+                  <input type="number" class="form-control" id="efdhrs" name="efdhrs" placeholder="Mesukkan EFDHRS" required>
+                </div>
+                
+                <div class="text-center mt-4">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="reset" class="btn btn-danger">Hapus</button>
+                </div>
+              </form>
+              <!-- End General Form Elements -->
+  </main><!-- End #main -->
+<!-- AKHIR INPUT  -->
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+
+    <!-- Start Sidebar  -->
+    <%- include('../partials/sidebar') %>
+    <!-- End Sidebar  -->
+
+    <!-- AWAL INPUT  -->
+    <main id="main" class="main">
+      <section class="section">
+            <div class="row align-items-top">
+              <div class="col-lg-12">
+                <% dataMesin.forEach((engine, i) => { %>
+                 <!-- Card with an image on left -->
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <img src="img/unit<%= i+1 %>.jpg" width="650" height="auto" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">ULPLTD Kotamobagu Unit <%= i+1 %></h5>
+                                <!-- Small tables -->
+              <table class="table table-sm">
+                <tbody>
+                  <tr>
+                    <td>Merk Mesin</td>
+                    <td><%= engine.merk %> </td>
+                  </tr>
+                  <tr>
+                    <td>Tipe Mesin</td>
+                    <td><%= engine.tipeMesin %> </td>
+                  </tr>
+                  <tr>
+                    <td>Serial Number</td>
+                    <td><%= engine.serialNumber %> </td>
+                  </tr>
+                  <tr>
+                    <td>Tahun Operasi</td>
+                    <td><%= engine.tahunOperasi %> </td>
+                  </tr>
+                  <tr>
+                    <td>Daya Terpasang</td>
+                    <td><%= engine.dayaTerpasang %> </td>
+                  </tr>
+                  <tr>
+                    <td>Daya Mampu</td>
+                    <td><%= engine.dayaMampu %> </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- End small tables -->
+              <!-- Default Accordion -->
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Data Generator
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Data Transformator
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Default Accordion Example -->
+              <!-- Basic Modal -->
+              <button type="button" class="btn btn-danger btn-sm mt-2 button-slo" data-bs-toggle="modal" data-bs-target="#basicModal">
+                Sertifikat Laik Operasi
+              </button>
+              <div class="modal fade" id="basicModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Sertifikat Laik Operasi</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Basic Modal-->
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card with an image on left -->
+                <% }) %>
+      </section>
+    </main><!-- End #main -->
+    <!-- AKHIR INPUT  -->
+
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
+</html>

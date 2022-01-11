@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+
+    <!-- Start Sidebar  -->
+    <%- include('../partials/sidebar') %>
+    <!-- End Sidebar  -->
+
+    <!-- AWAL INPUT  -->
+    <main id="main" class="main">
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-content-center">
+          <div class="col-6">
+            <div class="pagetitle">
+              <h1>Kinerja ULPLTD Kotamobagu</h1>
+            </div>
+          </div>
+          <div class="col-6 mb-3 d-flex justify-content-end">
+            <a href="input" class="btn btn-success me-2">Input Data</a>
+            <a href="" class="btn btn-warning me-2">Edit Data</a>
+            <a href="" class="btn btn-danger me-2">Delete Data</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- End Page Title -->
+
+      <!-- <div class="container-fluid mt--7">
+            <div class="row">
+              <div class="col-xl-6 mb-5 mb-xl-0">
+                
+              </div>
+            </div>
+        </div> -->
+      <div class="container-fluid mt-7">
+        <div class="row">
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <form action="/kinerja" method="GET" enctype="multipart/form-data">
+                    <div class="col-4 float-end d-lg-inline-flex mt-3">
+                      <input type="month" class="form-control me-2" name="periodeData" />
+                      <input class="btn btn-primary float-end" type="submit" value="Submit" />
+                    </div>
+                  </form>
+                  <h5 class="card-title">Kinerja Bulanan</h5>
+
+                  <!-- Pills Tabs -->
+                  <ul class="nav nav-pills mb-3 kinrtja-bulanan" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#eafbul" type="button" role="tab" aria-controls="pills-home" aria-selected="true">EAF</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#eforbul" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">EFOR</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#sofbul" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">SOF</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#psbul" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">PS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#sfcbul" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">SFC</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content pt-2" id="myTabContent">
+                    <div class="tab-pane fade show active" id="eafbul" role="tabpanel" aria-labelledby="home-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartEAF" style="max-height: 400px"></canvas>
+                      <script>
+                        const eaf = <%- EAF %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="eforbul" role="tabpanel" aria-labelledby="profile-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartEFOR" style="max-height: 400px"></canvas>
+                      <script>
+                        const efor = <%- EFOR %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="sofbul" role="tabpanel" aria-labelledby="contact-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartSOF" style="max-height: 400px"></canvas>
+                      <script>
+                        const sof = <%- SOF %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="psbul" role="tabpanel" aria-labelledby="contact-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartPS" style="max-height: 400px"></canvas>
+                      <script>
+                        const ps = <%- PS %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="sfcbul" role="tabpanel" aria-labelledby="contact-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartSFC" style="max-height: 400px"></canvas>
+                      <script>
+                        const sfc = <%- SFC %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                  </div>
+                  <!-- End Pills Tabs -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <form action="/kinerja" method="GET" enctype="multipart/form-data">
+                    <div class="col-4 float-end d-lg-inline-flex mt-3">
+                      <input type="month" class="form-control me-2" name="periodeDataKum" />
+                      <input class="btn btn-primary float-end" type="submit" value="Submit" />
+                    </div>
+                  </form>
+                  <h5 class="card-title">Kinerja Kumulatif</h5>
+
+                  <!-- Pills Tabs -->
+                  <ul class="nav nav-pills mb-3 kinrtja-bulanan" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#eafkum" type="button" role="tab" aria-controls="pills-home" aria-selected="true">EAF</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#eforkum" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">EFOR</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#sofkum" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">SOF</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pskum" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">PS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#sfckum" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">SFC</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content pt-2" id="myTabContent">
+                    <div class="tab-pane fade show active" id="eafkum" role="tabpanel" aria-labelledby="home-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartEAFKum" style="max-height: 400px"></canvas>
+                      <script>
+                        const eafKum = <%- EAFKum %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="eforkum" role="tabpanel" aria-labelledby="profile-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartEFORKum" style="max-height: 400px"></canvas>
+                      <script>
+                        const eforKum = <%- EFORKum %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="sofkum" role="tabpanel" aria-labelledby="contact-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartSOFKum" style="max-height: 400px"></canvas>
+                      <script>
+                        const sofKum = <%- SOFKum %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="pskum" role="tabpanel" aria-labelledby="profile-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartPSKum" style="max-height: 400px"></canvas>
+                      <script>
+                        const psKum = <%- PSKum %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                    <div class="tab-pane fade" id="sfckum" role="tabpanel" aria-labelledby="contact-tab">
+                      <!-- Line Chart -->
+                      <canvas id="chartSFCKum" style="max-height: 400px"></canvas>
+                      <script>
+                        const sfcKum = <%- SFCKum %>;
+                      </script>
+                      <!-- End Line CHart -->
+                    </div>
+                  </div>
+                  <!-- End Pills Tabs -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+    <!-- AKHIR INPUT  -->
+
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
+</html>

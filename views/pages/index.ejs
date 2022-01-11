@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+
+    <!-- Start Sidebar  -->
+    <%- include('../partials/sidebar') %>
+    <!-- End Sidebar  -->
+
+    <!-- AWAL INPUT  -->
+    <main id="main" class="main">
+      <!-- Mulai Carousel  -->
+      <section class="section">
+        <div class="row align-center justify-content-center">
+          <div class="col-lg-11 mb-4">
+            <!-- <div class="card align-center justify-content-center">
+              <div class="card-body">
+                <h5 class="card-title">With captions</h5> -->
+
+            <!-- Slides with captions -->
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="img/slides-1.jpeg" class="d-block w-100" alt="..." />
+                  <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5 class="slide">Apel Siaga Nataru ULPLTD Kotamobagu</h5> -->
+                    <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/slides-2.jpeg" class="d-block w-100" alt="..." />
+                  <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5 class="slide">Second slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/slides-3.jpeg" class="d-block w-100" alt="..." />
+                  <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5 class="slide">Third slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Slides with captions -->
+      <!-- Akhir Carousel  -->
+      <section class="section dashboard">
+        <div class="row">
+          <!-- Left side columns -->
+          <div class="col-lg-8">
+            <div class="row">
+              <!-- Sales Card -->
+              <div class="col-xxl-4 col-xl-12">
+                <div class="card info-card sales-card">
+                  <div class="card-body">
+                    <h5 class="card-title">Daya Terpasang</h5>
+
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi-lightning-charge"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6>8.000 kW</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Sales Card -->
+
+              <!-- Revenue Card -->
+              <div class="col-xxl-4 col-xl-12">
+                <div class="card info-card revenue-card">
+                  <div class="card-body">
+                    <h5 class="card-title">Daya Mampu</h5>
+
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi-lightning-charge"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6>6.000 kW</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Revenue Card -->
+
+              <!-- Customers Card -->
+              <div class="col-xxl-4 col-xl-12">
+                <div class="card info-card customers-card">
+                  <div class="card-body">
+                    <h5 class="card-title">Jumlah Mesin</h5>
+
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi-gear"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6>6 Unit</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Customers Card -->
+
+              <!-- Reports -->
+              <div class="col-12">
+                <div class="card">
+                  <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><a class="dropdown-item" href="#">Today</a></li>
+                      <li><a class="dropdown-item" href="#">This Month</a></li>
+                      <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                    <!-- Line Chart -->
+                    <div id="reportsChart"></div>
+
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new ApexCharts(document.querySelector("#reportsChart"), {
+                          series: [
+                            {
+                              name: "Sales",
+                              data: [31, 40, 28, 51, 42, 82, 56],
+                            },
+                            {
+                              name: "Revenue",
+                              data: [11, 32, 45, 32, 34, 52, 41],
+                            },
+                            {
+                              name: "Customers",
+                              data: [15, 11, 32, 18, 9, 24, 11],
+                            },
+                          ],
+                          chart: {
+                            height: 350,
+                            type: "area",
+                            toolbar: {
+                              show: false,
+                            },
+                          },
+                          markers: {
+                            size: 4,
+                          },
+                          colors: ["#4154f1", "#2eca6a", "#ff771d"],
+                          fill: {
+                            type: "gradient",
+                            gradient: {
+                              shadeIntensity: 1,
+                              opacityFrom: 0.3,
+                              opacityTo: 0.4,
+                              stops: [0, 90, 100],
+                            },
+                          },
+                          dataLabels: {
+                            enabled: false,
+                          },
+                          stroke: {
+                            curve: "smooth",
+                            width: 2,
+                          },
+                          xaxis: {
+                            type: "datetime",
+                            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                          },
+                          tooltip: {
+                            x: {
+                              format: "dd/MM/yy HH:mm",
+                            },
+                          },
+                        }).render();
+                      });
+                    </script>
+                    <!-- End Line Chart -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Reports -->
+            </div>
+          </div>
+          <!-- End Left side columns -->
+
+          <!-- Right side columns -->
+          <div class="col-lg-4">
+            <!-- Tombol Navigasi Data  -->
+            <div class="card d-flex justify-content-between">
+              <div class="card-body">
+                <h5 class="card-title">Jumlah Pegawai</h5>
+                <div class="row d-flex text-center fw-bold justify-content-evenly mb-2">
+                  <div class="col-sm-3 card-icon">
+                    <i class="bi-people-fill"></i>
+                    <h6 class="mb-3">PLN</h6>
+                    <p>5</p>
+                  </div>
+                  <div class="col-sm-3 card-icon">
+                    <i class="bi-people-fill"></i>
+                    <h6 class="mb-3">O&M</h6>
+                    <p>20</p>
+                  </div>
+                  <div class="col-sm-3 card-icon">
+                    <i class="bi-people-fill"></i>
+                    <h6 class="mb-3">CS</h6>
+                    <p>3</p>
+                  </div>
+                  <div class="col-sm-3 card-icon">
+                    <i class="bi-people-fill"></i>
+                    <h6 class="mb-3">Security</h6>
+                    <p>6</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tombol Navigasi Data  -->
+
+            <!-- Website Traffic -->
+            <div class="card">
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body pb-0">
+                <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+
+                <div id="trafficChart" style="min-height: 400px" class="echart"></div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#trafficChart")).setOption({
+                      tooltip: {
+                        trigger: "item",
+                      },
+                      legend: {
+                        top: "5%",
+                        left: "center",
+                      },
+                      series: [
+                        {
+                          name: "Access From",
+                          type: "pie",
+                          radius: ["40%", "70%"],
+                          avoidLabelOverlap: false,
+                          label: {
+                            show: false,
+                            position: "center",
+                          },
+                          emphasis: {
+                            label: {
+                              show: true,
+                              fontSize: "18",
+                              fontWeight: "bold",
+                            },
+                          },
+                          labelLine: {
+                            show: false,
+                          },
+                          data: [
+                            {
+                              value: 1048,
+                              name: "Search Engine",
+                            },
+                            {
+                              value: 735,
+                              name: "Direct",
+                            },
+                            {
+                              value: 580,
+                              name: "Email",
+                            },
+                            {
+                              value: 484,
+                              name: "Union Ads",
+                            },
+                            {
+                              value: 300,
+                              name: "Video Ads",
+                            },
+                          ],
+                        },
+                      ],
+                    });
+                  });
+                </script>
+              </div>
+            </div>
+            <!-- End Website Traffic -->
+          </div>
+          <!-- End Right side columns -->
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+    <!-- AKHIR INPUT  -->
+
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
+</html>
