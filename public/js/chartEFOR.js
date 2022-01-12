@@ -5,7 +5,7 @@ const chartEFOR = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "EFOR 2020",
+          label: "EFOR 2021",
           data: efor,
           fill: false,
           backgroundColor: ["rgba(0, 174, 239, 0.8)"],

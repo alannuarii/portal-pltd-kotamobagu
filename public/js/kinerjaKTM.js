@@ -5,7 +5,7 @@ const { rumusEAF, rumusEFOR, rumusSOF, rumusPS, rumusSFC } = require("./formula"
 async function getEAF() {
   const arrEAF = [];
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmahder = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -21,7 +21,7 @@ async function getEAF() {
 async function getEFOR() {
   const arrEFOR = [];
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmfoud = [];
     dmfoshdrsh = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -37,7 +37,7 @@ async function getEFOR() {
 async function getSOF() {
   const arrSOF = [];
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmhar = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -53,7 +53,7 @@ async function getSOF() {
 async function getPS() {
   const arrPS = [];
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     psTotal = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -69,7 +69,7 @@ async function getPS() {
 async function getSFC() {
   const arrSFC = [];
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     pemakaianBBM = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {

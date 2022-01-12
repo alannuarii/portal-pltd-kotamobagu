@@ -5,7 +5,7 @@ const chartEFORKum = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "EFOR Kumulatif 2020",
+          label: "EFOR Kumulatif 2021",
           data: eforKum,
           fill: false,
           backgroundColor: ["rgba(255, 242, 0, 0.8)"],

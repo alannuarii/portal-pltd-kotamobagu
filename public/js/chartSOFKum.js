@@ -5,7 +5,7 @@ const chartSOFKum = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "SOF Kumulatif 2020",
+          label: "SOF Kumulatif 2021",
           data: sofKum,
           fill: false,
           backgroundColor: ["rgba(255, 242, 0, 0.8)"],

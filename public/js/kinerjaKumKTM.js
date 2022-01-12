@@ -11,7 +11,7 @@ async function getKumEAF() {
   const arrdmph = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmahder = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -41,7 +41,7 @@ async function getKumEFOR() {
   const arrdmfoshdrsh = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmfoud = [];
     dmfoshdrsh = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -71,7 +71,7 @@ async function getKumSOF() {
   const arrdmph = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     dmhar = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -101,7 +101,7 @@ async function getKumPS() {
   const arrproduksi = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     psTotal = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -131,7 +131,7 @@ async function getKumSFC() {
   const arrproduksi = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ bulanData: j });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
     pemakaianBBM = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {

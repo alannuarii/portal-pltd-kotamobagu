@@ -108,7 +108,11 @@ const Kinerja = mongoose.model("kinerja", {
   dtph: {
     type: Number,
     default: function () {
-      return this.dayaTerpasang * this.ph;
+      if (this.ph === 0) {
+        return 0;
+      } else {
+        return this.dayaTerpasang * this.ph;
+      }
     },
   },
   dmahder: {
@@ -120,7 +124,11 @@ const Kinerja = mongoose.model("kinerja", {
   dmph: {
     type: Number,
     default: function () {
-      return this.dayaMampu * this.ph;
+      if (this.ph === 0) {
+        return 0;
+      } else {
+        return this.dayaMampu * this.ph;
+      }
     },
   },
   dmfoud: {
@@ -184,13 +192,17 @@ const Kinerja = mongoose.model("kinerja", {
   sof: {
     type: Number,
     default: function () {
-      return ((this.po + this.mo) / this.ph) * 100;
+      if (this.ph === 0) {
+        return 0;
+      } else {
+        return ((this.po + this.mo) / this.ph) * 100;
+      }
     },
   },
   cf: {
     type: Number,
     default: function () {
-      if (this.produksi === 0) {
+      if (this.dayaTerpasang === 0 || this.produksi === 0) {
         return 0;
       } else {
         return (this.produksi / (this.dayaTerpasang * this.ph)) * 100;
@@ -200,7 +212,11 @@ const Kinerja = mongoose.model("kinerja", {
   eaf: {
     type: Number,
     default: function () {
-      return ((this.sh + this.rsh - this.deratingTotal) / this.ph) * 100;
+      if (this.ph === 0) {
+        return 0;
+      } else {
+        return ((this.sh + this.rsh - this.deratingTotal) / this.ph) * 100;
+      }
     },
   },
   efor: {

@@ -5,7 +5,7 @@ const chartPSKum = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "PS Kumulatif 2020",
+          label: "PS Kumulatif 2021",
           data: psKum,
           fill: false,
           backgroundColor: ["rgba(255, 242, 0, 0.8)"],

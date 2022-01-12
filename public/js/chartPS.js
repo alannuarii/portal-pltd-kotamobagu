@@ -5,7 +5,7 @@ const chartPS = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "PS 2020",
+          label: "PS 2021",
           data: ps,
           fill: false,
           backgroundColor: ["rgba(0, 174, 239, 0.8)"],
