@@ -11,8 +11,27 @@ const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC } = require("../pu
 const { getKumEAFY, getKumEFORY, getKumSOFY, getKumPSY, getKumSFCY } = require("../public/js/kinerjaKumKTMY");
 
 // Menampilkan Data di Halaman Kinerja
-router.get("/", (req, res) => {
-  res.render("pages/index");
+router.get("/", async (req, res) => {
+  const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
+  const EAFU = [];
+  const EFORU = [];
+  const SOFU = [];
+  const PSU = [];
+  const SFCU = [];
+  for (i = 0; i < 6; i++) {
+    EAFU.push(kinUnit[i].eaf);
+    // EFORU.push(kinUnit[i].efor);
+    // SOFU.push(kinUnit[i].sof);
+    // PSU.push(kinUnit[i].ps);
+    // SFCU.push(kinUnit[i].sfc);
+  }
+  res.render("pages/index", {
+    EAFU: JSON.stringify(EAFU),
+    // EFORU: JSON.stringify(EFORU),
+    // SOFU: JSON.stringify(SOFU),
+    // PSU: JSON.stringify(PSU),
+    // SFCU: JSON.stringify(SFCU),
+  });
 });
 // router.get("/", async (req, res) => {
 //   try {

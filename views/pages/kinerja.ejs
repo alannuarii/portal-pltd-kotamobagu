@@ -13,19 +13,33 @@
     <!-- AWAL INPUT  -->
     <main id="main" class="main">
       <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-content-center">
+        <div class="row d-flex">
           <div class="col-6">
             <div class="pagetitle">
               <h1>Kinerja ULPLTD Kotamobagu</h1>
             </div>
           </div>
-          <div class="col-6 mb-3 d-flex justify-content-end">
+          <div class="col-6 mb-3 d-flex justify-content-end align-content-center">
+            
+            <a href="input" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"><i class="bi-box-arrow-in-right"></i></a>
+            <a href="uploadxlsx" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"><i class="bi-upload"></i></a>
+            <a href="" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="bi-info-circle"></i></a>
+
+            <form action="/kinerja" method="GET" enctype="multipart/form-data">
+              <select id="selectyear" class="form-select" name="tahunData" onchange="this.form.submit()">
+                <option selected>Pilih Tahun</option>
+                <option>2020</option>
+                <option>2021</option>
+              </select>
+          </form>
+          </div>
+          <!-- <div class="col-6 mb-3 d-flex justify-content-end">
             <a href="input" class="btn btn-success me-2">Input Data</a>
             <a href="" class="btn btn-warning me-2">Edit Data</a>
             <a href="" class="btn btn-danger me-2">Delete Data</a>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- End Page Title -->
 
@@ -42,15 +56,6 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <form action="/kinerja" method="GET" enctype="multipart/form-data">
-                    <div class="col-4 float-end d-lg-inline-flex mt-3">
-                      <select id="selectyear" class="form-select" name="tahunData" onchange="this.form.submit()">
-                        <option selected>Pilih Tahun</option>
-                        <option>2020</option>
-                        <option>2021</option>
-                      </select>
-                    </div>
-                  </form>
                   <h5 class="card-title">Kinerja Bulanan</h5>
 
                   <!-- Pills Tabs -->
@@ -122,12 +127,6 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <form action="/kinerja" method="GET" enctype="multipart/form-data">
-                    <div class="col-4 float-end d-lg-inline-flex mt-3">
-                      <input type="month" class="form-control me-2" name="periodeDataKum" />
-                      <input class="btn btn-primary float-end" type="submit" value="Submit" />
-                    </div>
-                  </form>
                   <h5 class="card-title">Kinerja Kumulatif</h5>
 
                   <!-- Pills Tabs -->
