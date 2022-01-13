@@ -6,7 +6,9 @@ const xlsx = require("xlsx");
 const upload = require("../config/upload");
 // const rumusEAF = require("../formula");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
+const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
 const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC } = require("../public/js/kinerjaKumKTM");
+const { getKumEAFY, getKumEFORY, getKumSOFY, getKumPSY, getKumSFCY } = require("../public/js/kinerjaKumKTMY");
 
 // Menampilkan Data di Halaman Kinerja
 router.get("/", (req, res) => {
@@ -81,10 +83,30 @@ router.get("/layout", (req, res) => {
 // });
 
 router.get("/kinerja", async (req, res) => {
-  if (req.query.periodeData) {
-    const EAF = await getEAF();
+  if (req.query.tahunData) {
+    const EAFY = await getEAFY(req);
+    const EFORY = await getEFORY(req);
+    const SOFY = await getSOFY(req);
+    const PSY = await getPSY(req);
+    const SFCY = await getSFCY(req);
+    const EAFKumY = await getKumEAFY(req);
+    const EFORKumY = await getKumEFORY(req);
+    const SOFKumY = await getKumSOFY(req);
+    const PSKumY = await getKumPSY(req);
+    const SFCKumY = await getKumSFCY(req);
     // console.log(EAF);
-    res.render("pages/kinerja", {});
+    res.render("pages/kinerja", {
+      EAF: JSON.stringify(EAFY),
+      EFOR: JSON.stringify(EFORY),
+      SOF: JSON.stringify(SOFY),
+      PS: JSON.stringify(PSY),
+      SFC: JSON.stringify(SFCY),
+      EAFKum: JSON.stringify(EAFKumY),
+      EFORKum: JSON.stringify(EFORKumY),
+      SOFKum: JSON.stringify(SOFKumY),
+      PSKum: JSON.stringify(PSKumY),
+      SFCKum: JSON.stringify(SFCKumY),
+    });
   } else {
     const EAF = await getEAF();
     const EFOR = await getEFOR();

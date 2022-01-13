@@ -44,8 +44,11 @@
                 <div class="card-body">
                   <form action="/kinerja" method="GET" enctype="multipart/form-data">
                     <div class="col-4 float-end d-lg-inline-flex mt-3">
-                      <input type="month" class="form-control me-2" name="periodeData" />
-                      <input class="btn btn-primary float-end" type="submit" value="Submit" />
+                      <select id="selectyear" class="form-select" name="tahunData" onchange="this.form.submit()">
+                        <option selected>Pilih Tahun</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                      </select>
                     </div>
                   </form>
                   <h5 class="card-title">Kinerja Bulanan</h5>
