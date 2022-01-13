@@ -134,9 +134,7 @@
                     <h5 class="card-title">Kinerja <span>/Unit</span></h5>
                     <div class="col-12 d-flex justify-content-lg-center align-content-center">
                       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="EAF"></button>
-                        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="EFOR"></button>
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="SOF"></button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="EAF, SOF, EFOR"></button>
                         <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="PS"></button>
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="SFC"></button>
                       </div>
@@ -146,6 +144,8 @@
                     <canvas id="chartEAFU" style="max-height: 400px"></canvas>
                     <script>
                       const eafu = <%- EAFU %>;
+                      const sofu = <%- SOFU %>;
+                      const eforu = <%- EFORU %>;
                     </script>
                     <!-- End Line CHart -->
                   </div>

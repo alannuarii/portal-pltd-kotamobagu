@@ -20,15 +20,15 @@ router.get("/", async (req, res) => {
   const SFCU = [];
   for (i = 0; i < 6; i++) {
     EAFU.push(kinUnit[i].eaf);
-    // EFORU.push(kinUnit[i].efor);
-    // SOFU.push(kinUnit[i].sof);
+    EFORU.push(kinUnit[i].efor);
+    SOFU.push(kinUnit[i].sof);
     // PSU.push(kinUnit[i].ps);
     // SFCU.push(kinUnit[i].sfc);
   }
   res.render("pages/index", {
     EAFU: JSON.stringify(EAFU),
-    // EFORU: JSON.stringify(EFORU),
-    // SOFU: JSON.stringify(SOFU),
+    EFORU: JSON.stringify(EFORU),
+    SOFU: JSON.stringify(SOFU),
     // PSU: JSON.stringify(PSU),
     // SFCU: JSON.stringify(SFCU),
   });
