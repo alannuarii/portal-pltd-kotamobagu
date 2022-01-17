@@ -134,20 +134,52 @@
                     <h5 class="card-title">Kinerja <span>/Unit</span></h5>
                     <div class="col-12 d-flex justify-content-lg-center align-content-center">
                       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="EAF, SOF, EFOR"></button>
-                        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="PS"></button>
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="SFC"></button>
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#triidx" type="button">
+                              <i class="bi-circle-fill" style="font-size: 15px" data-bs-toggle="tooltip" data-bs-placement="top" title="EAF, SOF, EFOR"></i>
+                            </button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#psidx" type="button"><i class="bi-circle-fill" style="font-size: 15px" data-bs-toggle="tooltip" data-bs-placement="top" title="PS"></i></button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#sfcidx" type="button"><i class="bi-circle-fill" style="font-size: 15px" data-bs-toggle="tooltip" data-bs-placement="top" title="SFC"></i></button>
+                          </li>
+                        </ul>
                       </div>
                     </div>
 
-                    <!-- Line Chart -->
-                    <canvas id="chartEAFU" style="max-height: 400px"></canvas>
-                    <script>
-                      const eafu = <%- EAFU %>;
-                      const sofu = <%- SOFU %>;
-                      const eforu = <%- EFORU %>;
-                    </script>
-                    <!-- End Line CHart -->
+                    <div class="tab-content pt-2" id="myTabContent">
+                      <div class="tab-pane fade show active" id="triidx" role="tabpanel" aria-labelledby="home-tab">
+                        <!-- Line Chart -->
+                        <canvas id="chartEAFU" style="max-height: 400px"></canvas>
+                        <script>
+                          const eafu = <%- EAFU %>;
+                          const sofu = <%- SOFU %>;
+                          const eforu = <%- EFORU %>;
+                        </script>
+                        <!-- End Line CHart -->
+                      </div>
+
+                      <div class="tab-pane fade" id="psidx" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- Line Chart -->
+                        <canvas id="chartPSU" style="max-height: 400px"></canvas>
+                        <script>
+                          const psu = <%- PSU %>;
+                        </script>
+                        <!-- End Line CHart -->
+                      </div>
+
+                      <div class="tab-pane fade" id="sfcidx" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- Line Chart -->
+                        <canvas id="chartSFCU" style="max-height: 400px"></canvas>
+                        <script>
+                          const sfcu = <%- SFCU %>;
+                        </script>
+                        <!-- End Line CHart -->
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

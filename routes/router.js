@@ -10,6 +10,16 @@ const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/ki
 const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC } = require("../public/js/kinerjaKumKTM");
 const { getKumEAFY, getKumEFORY, getKumSOFY, getKumPSY, getKumSFCY } = require("../public/js/kinerjaKumKTMY");
 
+// Menampilkan Pages Registrasi
+router.get("/login", (req, res) => {
+  res.render("pages/login");
+});
+
+// Menampilkan Pages Registrasi
+router.get("/register", (req, res) => {
+  res.render("pages/register");
+});
+
 // Menampilkan Data di Halaman Kinerja
 router.get("/", async (req, res) => {
   const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
@@ -22,15 +32,15 @@ router.get("/", async (req, res) => {
     EAFU.push(kinUnit[i].eaf);
     EFORU.push(kinUnit[i].efor);
     SOFU.push(kinUnit[i].sof);
-    // PSU.push(kinUnit[i].ps);
-    // SFCU.push(kinUnit[i].sfc);
+    PSU.push(kinUnit[i].ps);
+    SFCU.push(kinUnit[i].sfcBruto);
   }
   res.render("pages/index", {
     EAFU: JSON.stringify(EAFU),
     EFORU: JSON.stringify(EFORU),
     SOFU: JSON.stringify(SOFU),
-    // PSU: JSON.stringify(PSU),
-    // SFCU: JSON.stringify(SFCU),
+    PSU: JSON.stringify(PSU),
+    SFCU: JSON.stringify(SFCU),
   });
 });
 // router.get("/", async (req, res) => {
