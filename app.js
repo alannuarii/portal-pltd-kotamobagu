@@ -1,5 +1,6 @@
 const express = require("express");
 const methodeOverride = require("method-override");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const con = require("./config/db");
 const app = express();
@@ -14,9 +15,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodeOverride("_method"));
 
+// Parsing Cookie from HTTP Request
+app.use(cookieParser());
+
 // Include Router
 const router = require("./routes/router");
 app.use("/", router);
+
+const auth = require("./routes/auth");
+app.use("/", auth);
 
 // Starting Server
 const port = 3000;

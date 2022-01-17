@@ -25,8 +25,8 @@ const Mesin = mongoose.model("engine", {
   },
 });
 
-// const mesin1 = new Mesin({
-//   namaUnit: "ULPLTD Kotamobagu #6",
+// const mesin7 = new Mesin({
+//   namaUnit: "ULPLTD Kotamobagu #7",
 //   merk: "MAK",
 //   tipeMesin: "8M 453 AK",
 //   serialNumber: "26878",
@@ -35,6 +35,6 @@ const Mesin = mongoose.model("engine", {
 //   dayaMampu: 1700,
 // });
 
-// mesin1.save().then((mesin1) => console.log(mesin1));
+// mesin7.save().then((data) => console.log(data));
 
 module.exports = Mesin;

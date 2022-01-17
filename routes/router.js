@@ -10,16 +10,6 @@ const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/ki
 const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC } = require("../public/js/kinerjaKumKTM");
 const { getKumEAFY, getKumEFORY, getKumSOFY, getKumPSY, getKumSFCY } = require("../public/js/kinerjaKumKTMY");
 
-// Menampilkan Pages Registrasi
-router.get("/login", (req, res) => {
-  res.render("pages/login");
-});
-
-// Menampilkan Pages Registrasi
-router.get("/register", (req, res) => {
-  res.render("pages/register");
-});
-
 // Menampilkan Data di Halaman Kinerja
 router.get("/", async (req, res) => {
   const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });

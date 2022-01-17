@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <%- include('../partials/head') %>
-    <style>
+    <!-- <style>
       body {
         /* background-image: url("img/bglogin.jpg"); */
         background-color: #f1faee;
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <!-- AWAL INPUT  -->
@@ -31,8 +31,11 @@
                       <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                       <p class="text-center small">Enter your personal details to create account</p>
                     </div>
+                    <% if (message) { %>
+                    <div class="alert <%= messageClass %>" role="alert"><%= message %></div>
+                    <% } %>
 
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form method="POST" action="/register" class="row g-3 needs-validation">
                       <div class="col-12">
                         <label for="yourName" class="form-label">Your Name</label>
                         <input type="text" name="name" class="form-control" id="yourName" required />
@@ -48,6 +51,12 @@
                       <div class="col-12">
                         <label for="yourPassword" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="yourPassword" required />
+                        <div class="invalid-feedback">Please enter your password!</div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Confirm Password</label>
+                        <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required />
                         <div class="invalid-feedback">Please enter your password!</div>
                       </div>
 
