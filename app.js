@@ -22,9 +22,6 @@ app.use(cookieParser());
 const router = require("./routes/router");
 app.use("/", router);
 
-const auth = require("./routes/auth");
-app.use("/", auth);
-
 // Starting Server
 const port = 3000;
 app.listen(port, () => {
