@@ -118,6 +118,7 @@ const requireAuth = (req, res, next) => {
   }
 };
 
+// Fitur Log Out
 router.get("/logout", (req, res) => {
   res.clearCookie("AuthToken");
   res.redirect("/login");
@@ -125,6 +126,7 @@ router.get("/logout", (req, res) => {
 
 // Menampilkan Data di Halaman Kinerja
 router.get("/", requireAuth, async (req, res) => {
+  const user = req.user;
   const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
   const EAFU = [];
   const EFORU = [];
@@ -144,6 +146,7 @@ router.get("/", requireAuth, async (req, res) => {
     SOFU: JSON.stringify(SOFU),
     PSU: JSON.stringify(PSU),
     SFCU: JSON.stringify(SFCU),
+    user,
   });
 });
 // router.get("/", async (req, res) => {
@@ -159,7 +162,10 @@ router.get("/", requireAuth, async (req, res) => {
 
 // Menampilkan Form Input Data
 router.get("/input", requireAuth, (req, res) => {
-  res.render("pages/input");
+  const user = req.user;
+  res.render("pages/input", {
+    user,
+  });
 });
 // router.get("/input", async (req, res) => {
 //   try {
@@ -174,15 +180,20 @@ router.get("/input", requireAuth, (req, res) => {
 
 // Menampilkan Pages Data Mesin
 router.get("/dataMesin", requireAuth, async (req, res) => {
+  const user = req.user;
   getDataMesin = await Mesin.find({});
   res.render("pages/dataMesin", {
     dataMesin: getDataMesin,
+    user,
   });
 });
 
 // Menampilkan Pages Layout
 router.get("/layout", requireAuth, (req, res) => {
-  res.render("pages/layout");
+  const user = req.user;
+  res.render("pages/layout", {
+    user,
+  });
 });
 
 // Menampilkan Pages Kinerja
@@ -215,6 +226,7 @@ router.get("/layout", requireAuth, (req, res) => {
 // });
 
 router.get("/kinerja", requireAuth, async (req, res) => {
+  const user = req.user;
   if (req.query.tahunData) {
     const EAFY = await getEAFY(req);
     const EFORY = await getEFORY(req);
@@ -238,6 +250,7 @@ router.get("/kinerja", requireAuth, async (req, res) => {
       SOFKum: JSON.stringify(SOFKumY),
       PSKum: JSON.stringify(PSKumY),
       SFCKum: JSON.stringify(SFCKumY),
+      user,
     });
   } else {
     const EAF = await getEAF();
@@ -262,13 +275,17 @@ router.get("/kinerja", requireAuth, async (req, res) => {
       SOFKum: JSON.stringify(SOFKum),
       PSKum: JSON.stringify(PSKum),
       SFCKum: JSON.stringify(SFCKum),
+      user,
     });
   }
 });
 
 // Menampilkan File Upload Excel
 router.get("/uploadxlsx", requireAuth, (req, res) => {
-  res.render("pages/uploadxlsx");
+  const user = req.user;
+  res.render("pages/uploadxlsx", {
+    user,
+  });
 });
 
 // Upload File Excel ke Database
