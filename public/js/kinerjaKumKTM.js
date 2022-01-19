@@ -6,12 +6,14 @@ const rumusSUM = function (as) {
   return as.reduce((accumulator, curr) => accumulator + curr);
 };
 
+const year = new Date().getFullYear() - 1;
+
 async function getKumEAF() {
   const arrdmahder = [];
   const arrdmph = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     dmahder = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -41,7 +43,7 @@ async function getKumEFOR() {
   const arrdmfoshdrsh = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     dmfoud = [];
     dmfoshdrsh = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -71,7 +73,7 @@ async function getKumSOF() {
   const arrdmph = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     dmhar = [];
     dmph = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -101,7 +103,7 @@ async function getKumPS() {
   const arrproduksi = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     psTotal = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -131,7 +133,7 @@ async function getKumSFC() {
   const arrproduksi = [];
 
   for (j = 1; j < 13; j++) {
-    getBul1 = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: j }] });
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     pemakaianBBM = [];
     produksi = [];
     for (let i = 0; i < getBul1.length; i++) {
@@ -156,4 +158,20 @@ async function getKumSFC() {
   // console.log(arrKumEAF);
 }
 
-module.exports = { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC };
+async function getKumProd() {
+  const arrunit = [];
+  unit = ["PLTD Kotamobagu #1", "PLTD Kotamobagu #2", "PLTD Kotamobagu #3", "PLTD Kotamobagu #4", "PLTD Kotamobagu #5", "PLTD Kotamobagu #6"];
+  for (let j = 0; j < unit.length; j++) {
+    getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { namaUnit: unit[j] }] });
+    produksi = [];
+    for (let i = 0; i < getBul1.length; i++) {
+      produksi.push(getBul1[i].produksi);
+    }
+    arrunit.push(rumusSUM(produksi));
+  }
+
+  return arrunit;
+  // console.log(produksi);
+}
+
+module.exports = { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC, getKumProd };

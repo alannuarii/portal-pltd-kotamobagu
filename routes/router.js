@@ -9,7 +9,7 @@ const User = require("../model/user");
 const { cookie } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
 const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
-const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC } = require("../public/js/kinerjaKumKTM");
+const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC, getKumProd } = require("../public/js/kinerjaKumKTM");
 const { getKumEAFY, getKumEFORY, getKumSOFY, getKumPSY, getKumSFCY } = require("../public/js/kinerjaKumKTMY");
 
 // Menampilkan Pages Registrasi
@@ -22,12 +22,14 @@ router.get("/register", (req, res) => {
   res.render("pages/register");
 });
 
+// Function Hash Password
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash("sha256");
   const hash = sha256.update(password).digest("base64");
   return hash;
 };
 
+// Proses Registrasi
 router.post("/register", async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
@@ -64,6 +66,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Function Generate Auth Token
 const generateAuthToken = () => {
   return crypto.randomBytes(30).toString("hex");
 };
@@ -71,6 +74,7 @@ const generateAuthToken = () => {
 // This will hold the users and authToken related to users
 const authTokens = {};
 
+// Proses Login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const hashedPassword = getHashedPassword(password);
@@ -97,6 +101,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Middleware Pengecekan Cookie
 router.use((req, res, next) => {
   // Get auth token from the cookies
   const authToken = req.cookies["AuthToken"];
@@ -107,6 +112,7 @@ router.use((req, res, next) => {
   next();
 });
 
+// Proses Otentikasi
 const requireAuth = (req, res, next) => {
   if (req.user) {
     next();
@@ -127,6 +133,8 @@ router.get("/logout", (req, res) => {
 // Menampilkan Data di Halaman Kinerja
 router.get("/", requireAuth, async (req, res) => {
   const user = req.user;
+  const prod = await getKumProd();
+  // console.log(prod);
   const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
   const EAFU = [];
   const EFORU = [];
@@ -146,6 +154,8 @@ router.get("/", requireAuth, async (req, res) => {
     SOFU: JSON.stringify(SOFU),
     PSU: JSON.stringify(PSU),
     SFCU: JSON.stringify(SFCU),
+    Prod: JSON.stringify(prod),
+    produksi: prod,
     user,
   });
 });
@@ -167,16 +177,24 @@ router.get("/input", requireAuth, (req, res) => {
     user,
   });
 });
-// router.get("/input", async (req, res) => {
-//   try {
-//     const getMesin = await Mesin.find();
-//     res.render("pages/input", {
-//       getMesin: getMesin,
-//     });
-//   } catch (err) {
-//     res.json({ massage: err });
-//   }
-// });
+
+// Menampilkan Tabel Detail Data
+router.get("/detail", requireAuth, async (req, res) => {
+  const user = req.user;
+  if (req.query.bulanData && req.query.tahunData) {
+    const detail = await Kinerja.find({ $and: [{ tahunData: req.query.tahunData }, { bulanData: req.query.bulanData }] });
+    res.render("pages/detail", {
+      user,
+      detail,
+    });
+  } else {
+    const detail = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
+    res.render("pages/detail", {
+      user,
+      detail,
+    });
+  }
+});
 
 // Menampilkan Pages Data Mesin
 router.get("/dataMesin", requireAuth, async (req, res) => {
@@ -341,5 +359,12 @@ router.post("/", upload.single("excel"), (req, res) => {
 //   const deleteKinerja = await Kinerja.deleteOne({ _id: req.body._id });
 //   res.redirect("/kinerja");
 // });
+
+// Menangkap semua route yang dimasukkan
+// Dipasang paling akhir agar tidak memblock raute yang telah ditentukan
+router.use("/", (req, res) => {
+  res.status(404);
+  res.render("pages/error404");
+});
 
 module.exports = router;
