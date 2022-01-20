@@ -1161,3 +1161,58 @@ tr:hover {
 .card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
+
+.carousel-item img {
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: all 4s ease;
+  -moz-transition: all 4s ease;
+  -o-transition: all 4s ease;
+  -ms-transition: all 4s ease;
+  transition: all 4s ease;
+}
+
+.carousel-item p {
+  /* padding: 10%; */
+  /* position: absolute; */
+  bottom: 0;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.carousel-item p {
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  /* border-bottom: #fff solid 1px; */
+}
+
+.carousel-item:hover {
+  cursor: pointer;
+}
+
+.carousel-item:hover img {
+  opacity: 0.9;
+  transform: scale(1.2);
+}
+
+.carousel-item:hover p {
+  transform: translate(2px, -69px);
+  -webkit-transform: translate(2px, -69px);
+  -moz-transform: translate(2px, -69px);
+  -o-transform: translate(2px, -69px);
+  -ms-transform: translate(2px, -69px);
+  background-color: gray;
+  color: black;
+  opacity: calc(0.7);
+}
+
+.dashboard .dropdown-item:hover {
+  color: #4154f1;
+}
