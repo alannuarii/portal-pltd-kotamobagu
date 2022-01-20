@@ -329,15 +329,15 @@
                     <div class="progress mt-3">
                       <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= Math.round(fuel.persenKap) %>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
                         <%= fuel.persediaan / 1000 %> kL
-                        <input type="hidden" id="persenKap" value="<%=fuel.persenKap%>" />
+                        <input type="hidden" id="persen-kapasitas" value="<%=fuel.persenKap%>" />
                       </div>
                     </div>
                     <div class="row mt-4 align-content-center justify-content-center">
                       <div class="col-7">
                         <h3 style="font-weight: bolder">HOP <%= Math.round(fuel.hop) %> Hari</h3>
                       </div>
-                      <div class="col-5 ubah-icon">
-                        <img src="img/good.png" width="25%" data-bs-toggle="tooltip" data-bs-placement="top" title="AMAN" alt="" />
+                      <div class="col-5">
+                        <img id="ubah-icon" src="img/good.png" width="25%" data-bs-toggle="tooltip" data-bs-placement="top" title="AMAN" alt="" />
                       </div>
                     </div>
                     <div>
