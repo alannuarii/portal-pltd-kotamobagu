@@ -1148,3 +1148,7 @@ tr:hover {
   color: #4154f1;
   background: #f6f9ff;
 }
+
+.progress-bar {
+  color: black;
+}
