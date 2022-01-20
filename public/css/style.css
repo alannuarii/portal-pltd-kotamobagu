@@ -1208,11 +1208,15 @@ tr:hover {
   -moz-transform: translate(2px, -69px);
   -o-transform: translate(2px, -69px);
   -ms-transform: translate(2px, -69px);
-  background-color: gray;
+  background-color: #ffd60a;
   color: black;
   opacity: calc(0.7);
 }
 
 .dashboard .dropdown-item:hover {
   color: #4154f1;
+}
+
+.index-page .progress:hover {
+  transform: scale(1.08);
 }

@@ -6,6 +6,7 @@ const xlsx = require("xlsx");
 const upload = require("../config/upload");
 const crypto = require("crypto");
 const User = require("../model/user");
+const Fuel = require("../model/bahanBakar");
 const { cookie } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
 const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
@@ -134,7 +135,8 @@ router.get("/logout", (req, res) => {
 router.get("/", requireAuth, async (req, res) => {
   const user = req.user;
   const prod = await getKumProd();
-  // console.log(prod);
+  const fuel = await Fuel.findOne({});
+  // console.log(fuel);
   const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
   const EAFU = [];
   const EFORU = [];
@@ -156,19 +158,24 @@ router.get("/", requireAuth, async (req, res) => {
     SFCU: JSON.stringify(SFCU),
     Prod: JSON.stringify(prod),
     produksi: prod,
+    fuel,
     user,
   });
 });
-// router.get("/", async (req, res) => {
-//   try {
-//     const getKinerja = await Kinerja.find();
-//     // console.log(getKinerja);
-//     res.render("pages/index", {
-//     });
-//   } catch (err) {
-//     res.json({ massage: err });
-//   }
-// });
+
+router.post("/", (req, res) => {
+  Fuel.replaceOne(
+    {
+      _id: req.body._id,
+    },
+    {
+      pemakaian: req.body.pemakaian,
+      penambahan: req.body.penambahan,
+    }
+  ).then((result) => {
+    res.redirect("/");
+  });
+});
 
 // Menampilkan Form Input Data
 router.get("/input", requireAuth, (req, res) => {

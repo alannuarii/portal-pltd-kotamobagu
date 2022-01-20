@@ -319,25 +319,37 @@
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li><a class="dropdown-item" href="#">Update Data</a></li>
+                    <li class="dropdown-item update-hop">Update Data</a></li>
                   </ul>
                 </div>
-                <h5 class="card-title">Ketersediaan <span>Bahan Bakar</span></h5>
+                <h5 class="card-title" id="ketersediaan">Ketersediaan <span>Bahan Bakar</span></h5>
                 <div class="row">
                   <div class="col-12">
                     <img src="img/oil-tank2.png" style="opacity: calc(0.4)" width="650" height="auto" class="img-fluid rounded-start" alt="" />
                     <div class="progress mt-3">
-                      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75.5%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">75 Liter</div>
+                      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= Math.round(fuel.persenKap) %>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        <%= fuel.persediaan / 1000 %> kL
+                        <input type="hidden" id="persenKap" value="<%=fuel.persenKap%>" />
+                      </div>
                     </div>
                     <div class="row mt-4 align-content-center justify-content-center">
                       <div class="col-7">
-                        <h3 style="font-weight: bolder">HOP 14 Hari</h3>
+                        <h3 style="font-weight: bolder">HOP <%= Math.round(fuel.hop) %> Hari</h3>
                       </div>
-                      <div class="col-5">
+                      <div class="col-5 ubah-icon">
                         <img src="img/good.png" width="25%" data-bs-toggle="tooltip" data-bs-placement="top" title="AMAN" alt="" />
                       </div>
                     </div>
+                    <div>
+                      <p>Kapasitas Tangki: <%= fuel.kapasitas / 1000 %> kL</p>
+                    </div>
+                    <form method="post" action="/" class="row form-inputBBM">
+                    </form>
                   </div>
+                  <script>
+                    const pemakaian = <%- fuel.pemakaian %>;
+                    const penambahan = <%- fuel.penambahan %>;
+                  </script>
                 </div>
               </div>
             </div>
