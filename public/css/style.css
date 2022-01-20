@@ -14,7 +14,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0aa0b8;
+  background: #e3f2fd;
   color: #444444;
 }
 
@@ -382,7 +382,7 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #e8e8e4;
+  background-color: #dee2e6;
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -1151,4 +1151,13 @@ tr:hover {
 
 .progress-bar {
   color: black;
+}
+
+.index-page .card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
