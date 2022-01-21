@@ -166,7 +166,7 @@ router.get("/", requireAuth, async (req, res) => {
 router.post("/", (req, res) => {
   Fuel.replaceOne(
     {
-      _id: req.body._id,
+      idFuel: req.body.idFuel,
     },
     {
       pemakaian: req.body.pemakaian,

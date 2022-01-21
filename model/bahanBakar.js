@@ -31,6 +31,10 @@ const Fuel = mongoose.model("fuel", {
       return ((this.kapasitas - (this.kapasitas - this.persediaan)) / this.kapasitas) * 100;
     },
   },
+  idFuel: {
+    type: String,
+    default: "123456789",
+  },
 
   //   tglDaftar: {
   //     type: Date,
