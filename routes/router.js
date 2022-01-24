@@ -204,11 +204,27 @@ router.get("/detail", requireAuth, async (req, res) => {
 });
 
 // Menampilkan Pages Data Mesin
-router.get("/dataMesin", requireAuth, async (req, res) => {
+router.get("/data-mesin", requireAuth, async (req, res) => {
   const user = req.user;
   getDataMesin = await Mesin.find({});
-  res.render("pages/dataMesin", {
+  res.render("pages/data-mesin", {
     dataMesin: getDataMesin,
+    user,
+  });
+});
+
+// Menampilkan Pages Company Profile
+router.get("/company-profile", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/company-profile", {
+    user,
+  });
+});
+
+// Menampilkan Pages Safety Induction
+router.get("/safety-induction", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/safety-induction", {
     user,
   });
 });
