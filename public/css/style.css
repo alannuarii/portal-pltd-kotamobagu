@@ -68,13 +68,13 @@ h6 {
   # Back to top button
   --------------------------------------------------------------*/
 .back-to-top {
+  background: orange;
   position: fixed;
   visibility: hidden;
   opacity: 0;
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #fff200;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -87,7 +87,9 @@ h6 {
 }
 .back-to-top:hover {
   background: #0d5a71;
-  color: #fff;
+}
+.back-to-top i:hover {
+  color: white;
 }
 .back-to-top.active {
   visibility: visible;
@@ -682,17 +684,10 @@ h6 {
   color: #4154f1;
   background: #c0cfec5d;
 }
+
 .sidebar-nav .nav-link:hover i {
   color: #4154f1;
 }
-
-/* .sidebar-nav .nav-link:active {
-  color: #4154f1;
-  background: #c0cfec5d;
-}
-.sidebar-nav .nav-link:active i {
-  color: #4154f1;
-} */
 
 /*--------------------------------------------------------------
   # Dashboard
