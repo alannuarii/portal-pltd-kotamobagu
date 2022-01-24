@@ -324,16 +324,22 @@
                 </div>
                 <h5 class="card-title" id="ketersediaan">Ketersediaan <span>Bahan Bakar</span></h5>
                 <div class="row">
-                  <div class="col-12">
+                  <div class="col-12 oil-tank">
                     <img src="img/oil-tank2.png" style="opacity: calc(0.4)" width="650" height="auto" class="img-fluid rounded-start" alt="" />
+                      <div class="persediaan">
+                        <p>Persediaan</p>
+                        <h3 class="p-1"><%= fuel.persediaan / 1000 %> kL</h3>
+                      </div>
                     <div class="progress mt-3">
                       <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= Math.round(fuel.persenKap) %>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                        <%= fuel.persediaan / 1000 %> kL
+                        <%= Math.round(fuel.persenKap) %> %
                         <input type="hidden" id="persen-kapasitas" value="<%=fuel.persenKap%>" />
                       </div>
                     </div>
-                    <div class="row mt-4 align-content-center justify-content-center">
-                      <div class="col-7">
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-7">
                         <h3 style="font-weight: bolder">HOP <%= Math.round(fuel.hop) %> Hari</h3>
                       </div>
                       <div class="col-5">
@@ -345,11 +351,11 @@
                     </div>
                     <form method="post" action="/" class="row form-inputBBM"></form>
                   </div>
-                  <script>
+                    <script>
                     const pemakaian = <%- fuel.pemakaian %>;
                     const penambahan = <%- fuel.penambahan %>;
                     const idFuel = <%- fuel.idFuel %>;
-                  </script>
+                    </script>
                 </div>
               </div>
             </div>
