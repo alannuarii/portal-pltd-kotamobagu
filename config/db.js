@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/kotamobagu", {
+  await mongoose.connect("mongodb+srv://alannuarii:Al4n1234@cluster0.0fwme.mongodb.net/kotamobagu?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
