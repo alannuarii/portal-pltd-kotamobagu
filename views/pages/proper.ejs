@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="" class="logo d-flex align-items-center">
+          <img src="img/logopln.png" alt="" />
+          <span class="d-none d-lg-block">PORTAL ULPLTD KOTAMOBAGU</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+      </div>
+      <!-- End Logo -->
+
+      <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+          <li class="nav-item dropdown pe-3">
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <img src="img/no-image.gif" alt="Profile" class="rounded-circle" />
+              <span class="d-none d-md-block dropdown-toggle ps-2"><%= user.name %> </span> </a
+            ><!-- End Profile Iamge Icon -->
+
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li class="dropdown-header">
+                <h6><%= user.name %></h6>
+                <span><%= user.email %> </span>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="/logout">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Log Out</span>
+                </a>
+              </li>
+            </ul>
+            <!-- End Profile Dropdown Items -->
+          </li>
+          <!-- End Profile Nav -->
+        </ul>
+      </nav>
+      <!-- End Icons Navigation -->
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Sidebar  -->
+    <%- include('../partials/sidebar') %>
+    <!-- End Sidebar  -->
+
+    <!-- AWAL INPUT  -->
+    <main id="main" class="main">
+      <section class="section proper">
+        <div class="row justify-content-around text-center">
+          <% const proper = [2015, 2016, 2017, 2018, 2019, 2020, 2021] %> <% proper.forEach(e => { %>
+          <div class="col-5">
+            <div class="card mb-5" style="width: 100%">
+              <img src="img/slo1.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Sertifikat Proper Tahun <%= e %></h5>
+                <p class="card-text">ULPLTD Kotamobagu berhasil meraih predikat <span class="d-inline-block bg-primary text-light fw-bolder p-2">Proper Biru</span></p>
+                <a href="#" class="btn btn-success button-slo" data-bs-toggle="modal" data-bs-target="#basicModal">Detail</a>
+              </div>
+            </div>
+          </div>
+          <!-- Basic Modal -->
+          <!-- <button type="button" class="btn btn-danger btn-sm mt-2 button-slo" data-bs-toggle="modal" data-bs-target="#basicModal">Sertifikat Laik Operasi</button> -->
+          <div class="modal fade" id="basicModal" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Sertifikat Proper</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+              </div>
+            </div>
+          </div>
+          <!-- End Basic Modal-->
+          <% }) %>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+    <!-- AKHIR INPUT  -->
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
+</html>

@@ -229,6 +229,14 @@ router.get("/safety-induction", requireAuth, (req, res) => {
   });
 });
 
+// Page Tata Kelola Gudang
+router.get("/proper", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/proper", {
+    user,
+  });
+});
+
 // Menampilkan Pages Layout
 router.get("/layout", requireAuth, (req, res) => {
   const user = req.user;

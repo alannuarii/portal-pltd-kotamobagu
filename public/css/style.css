@@ -1231,6 +1231,7 @@ tr:hover {
 
 .dashboard .persediaan h3 {
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .dashboard .oil-tank:hover h3 {
@@ -1242,4 +1243,90 @@ tr:hover {
 .gudang .card {
   width: auto;
   height: 200px;
+}
+
+.gudang .card-footer {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.gudang .card-item p {
+  font-size: 75px;
+  font-weight: bolder;
+  transition: all 0.1s ease-in-out;
+}
+
+.gudang .card-persediaan p {
+  font-size: 35px;
+  font-weight: bolder;
+  transition: all 0.1s ease-in-out;
+}
+
+.gudang .card-masuk p,
+.gudang .card-keluar p {
+  font-size: 80px;
+  font-weight: bolder;
+  color: #444444;
+  transition: all 0.1s ease-in-out;
+}
+
+.gudang .card:hover .card-footer {
+  display: block;
+  position: static;
+  opacity: 1;
+  color: black;
+}
+
+.gudang .card .card-footer:hover {
+  color: white;
+}
+
+.gudang .card-item:hover p {
+  font-size: 60px;
+}
+
+.gudang .card-persediaan:hover p {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.gudang .card-masuk:hover p,
+.gudang .card-keluar:hover p {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+/* Proper */
+.proper .card {
+  background: lightgray;
+  height: 450px;
+  transition: all 0.3s ease-in-out;
+}
+
+.proper .btn {
+  visibility: hidden;
+  width: 200px;
+  background-color: darkgray;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.proper .card:hover {
+  background: white;
+  height: 500px;
+}
+
+.proper .card:hover .btn {
+  visibility: visible;
+  width: 200px;
+  background-color: darkgray;
+  border: none;
+  color: black;
+}
+
+.proper .card .btn:hover {
+  background-color: #157347;
+  border: none;
+  color: white;
 }
