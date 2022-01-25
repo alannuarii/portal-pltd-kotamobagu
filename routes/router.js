@@ -383,6 +383,14 @@ router.post("/", upload.single("excel"), (req, res) => {
 //   res.redirect("/kinerja");
 // });
 
+// Page Tata Kelola Gudang
+router.get("/gudang", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/gudang", {
+    user,
+  });
+});
+
 // Menangkap semua route yang dimasukkan
 // Dipasang paling akhir agar tidak memblock raute yang telah ditentukan
 router.use("/", (req, res) => {
