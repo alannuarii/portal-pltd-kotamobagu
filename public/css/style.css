@@ -1299,7 +1299,7 @@ tr:hover {
 
 /* Proper */
 .proper .card {
-  background: lightgray;
+  background: rgb(238, 238, 238);
   height: 450px;
   transition: all 0.3s ease-in-out;
 }
@@ -1329,4 +1329,77 @@ tr:hover {
   background-color: #157347;
   border: none;
   color: white;
+}
+
+/* Struktur Organisasi  */
+.organisasi img {
+  visibility: hidden;
+}
+
+.organisasi .card-man {
+  height: 140px;
+  width: 280px;
+  position: absolute;
+  left: 440px;
+  top: 195px;
+}
+
+.organisasi .card-ops {
+  height: 140px;
+  width: 280px;
+  position: absolute;
+  left: 92px;
+  top: 398px;
+}
+
+.organisasi .card-har {
+  height: 140px;
+  width: 280px;
+  position: absolute;
+  left: 440px;
+  top: 398px;
+}
+
+.organisasi .card-k3l {
+  height: 140px;
+  width: 280px;
+  position: absolute;
+  left: 788px;
+  top: 398px;
+}
+
+.organisasi .garis-vertikal1 {
+  border-left: 3px black solid;
+  height: 140px;
+  width: 0px;
+  position: absolute;
+  left: 580px;
+  top: 280px;
+}
+
+.organisasi .garis-vertikal2 {
+  border-left: 3px black solid;
+  height: 40px;
+  width: 0px;
+  position: absolute;
+  left: 232px;
+  top: 366px;
+}
+
+.organisasi .garis-vertikal3 {
+  border-left: 3px black solid;
+  height: 40px;
+  width: 0px;
+  position: absolute;
+  left: 927px;
+  top: 366px;
+}
+
+.organisasi .garis-horizontal {
+  border-top: 3px black solid;
+  height: 0px;
+  width: 692px;
+  position: absolute;
+  left: 235px;
+  top: 366px;
 }

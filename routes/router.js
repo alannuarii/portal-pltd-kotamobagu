@@ -238,6 +238,14 @@ router.get("/proper", requireAuth, (req, res) => {
 });
 
 // Menampilkan Pages Layout
+router.get("/struktur-organisasi", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/struktur-organisasi", {
+    user,
+  });
+});
+
+// Menampilkan Pages Layout
 router.get("/layout", requireAuth, (req, res) => {
   const user = req.user;
   res.render("pages/layout", {
