@@ -1332,9 +1332,6 @@ tr:hover {
 }
 
 /* Struktur Organisasi  */
-.organisasi img {
-  visibility: hidden;
-}
 
 .organisasi .card-main {
   width: 100%;
@@ -1378,10 +1375,12 @@ tr:hover {
 .organisasi .card-har p,
 .organisasi .card-k3l p {
   font-size: 23px;
+  font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: all 0.1s ease-in-out;
 }
 
 .organisasi .garis-vertikal1 {
@@ -1418,4 +1417,31 @@ tr:hover {
   position: absolute;
   left: 235px;
   top: 246px;
+}
+
+.organisasi .card-footer {
+  display: none;
+}
+
+.organisasi .card-man:hover .card-footer,
+.organisasi .card-ops:hover .card-footer,
+.organisasi .card-har:hover .card-footer,
+.organisasi .card-k3l:hover .card-footer {
+  display: block;
+  color: black;
+}
+
+.organisasi .card-man:hover p,
+.organisasi .card-ops:hover p,
+.organisasi .card-har:hover p,
+.organisasi .card-k3l:hover p {
+  font-weight: normal;
+}
+
+.organisasi .card-man .card-footer:hover,
+.organisasi .card-ops .card-footer:hover,
+.organisasi .card-har .card-footer:hover,
+.organisasi .card-k3l .card-footer:hover {
+  /* display: block; */
+  color: white;
 }
