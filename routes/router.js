@@ -7,6 +7,7 @@ const upload = require("../config/upload");
 const crypto = require("crypto");
 const User = require("../model/user");
 const Fuel = require("../model/bahanBakar");
+const Pers = require("../model/persMat");
 const { cookie } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
 const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
@@ -337,16 +338,16 @@ router.get("/kinerja", requireAuth, async (req, res) => {
   }
 });
 
-// Menampilkan File Upload Excel
-router.get("/uploadxlsx", requireAuth, (req, res) => {
+// Menampilkan File Upload Excel Kinerja
+router.get("/upload-kinerja", requireAuth, (req, res) => {
   const user = req.user;
-  res.render("pages/uploadxlsx", {
+  res.render("pages/upload-kinerja", {
     user,
   });
 });
 
-// Upload File Excel ke Database
-router.post("/", upload.single("excel"), (req, res) => {
+// Upload File Excel Kinerja ke Database
+router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
   const workbook = xlsx.readFile(req.file.path);
   const sheet_namelist = workbook.SheetNames;
   let x = 0;
@@ -362,6 +363,33 @@ router.post("/", upload.single("excel"), (req, res) => {
     x++;
   });
   res.redirect("/kinerja");
+});
+
+// Menampilkan File Upload Excel Persediaan
+router.get("/upload-persediaan", requireAuth, (req, res) => {
+  const user = req.user;
+  res.render("pages/upload-persediaan", {
+    user,
+  });
+});
+
+// Upload File Excel Persediaan ke Database
+router.post("/gudang", upload.single("pers"), (req, res) => {
+  const workbook = xlsx.readFile(req.file.path);
+  const sheet_namelist = workbook.SheetNames;
+  let x = 0;
+  sheet_namelist.forEach((element) => {
+    const xlData = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
+    Pers.insertMany(xlData, (err, data) => {
+      if (err) {
+        res.json({ massage: err });
+      } else {
+        console.log(req.file);
+      }
+    });
+    x++;
+  });
+  res.redirect("/");
 });
 
 // Mengirim Hasil Inpuit ke Database

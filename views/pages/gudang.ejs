@@ -59,7 +59,7 @@
     <main id="main" class="main">
       <div class="d-flex justify-content-center mb-4">
         <a href="input" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"><i class="bi-box-arrow-in-right"></i></a>
-        <a href="uploadxlsx" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"><i class="bi-upload"></i></a>
+        <div class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-pers"><i class="bi-upload"></i></div>
         <a href="detail" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="bi-info-circle"></i></a>
       </div>
       <section class="section gudang">
@@ -100,6 +100,24 @@
                 <p class="position-absolute start-50 top-50 translate-middle"><i class="bi-arrow-down-circle-fill text-danger"></i></p>
               </div>
               <div class="card-footer btn btn-success">Rincian Data</div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modal-pers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload File Persediaan Material</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/gudang" method="post" enctype="multipart/form-data" class="d-flex justify-content-end py-3">
+                  <label for=""></label>
+                  <input type="file" class="form-control" name="pers" id="pers" />
+                  <input type="submit" class="btn btn-success ms-2" value="Upload" />
+                </form>
+              </div>
             </div>
           </div>
         </div>
