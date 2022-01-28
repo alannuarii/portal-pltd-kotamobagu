@@ -339,10 +339,20 @@ router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
 // Page Tata Kelola Gudang
 router.get("/gudang", requireAuth, async (req, res) => {
   const length = (await Pers.find({})).length;
+
+  // Menghitung Total Persediaan
+  arrTot = [];
+  const pers = await Pers.find({});
+  for (let i = 0; i < pers.length; i++) {
+    arrTot.push(pers[i].totHarga);
+  }
+  const totPers = arrTot.reduce((a, b) => a + b);
+
   const user = req.user;
   res.render("pages/gudang", {
     user,
     length,
+    totPers,
   });
 });
 
