@@ -132,7 +132,7 @@ async function getKumSFC() {
   const arrpemakaianBBM = [];
   const arrproduksi = [];
 
-  for (j = 1; j < 13; j++) {
+  for (let j = 1; j < 13; j++) {
     getBul1 = await Kinerja.find({ $and: [{ tahunData: year }, { bulanData: j }] });
     pemakaianBBM = [];
     produksi = [];
