@@ -254,35 +254,6 @@ router.get("/layout", requireAuth, (req, res) => {
   });
 });
 
-// Menampilkan Pages Kinerja
-// router.get("/kinerja", (req, res) => {
-//   res.render("pages/kinerja");
-// });
-
-// Menampilkan Chart Kinerja
-// router.get("/kinerja", (req, res) => {
-//   // const periodeData = req.query.periodeData;
-//   if (req.query.periodeData) {
-//     Kinerja.find({}, (err, data) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log(data);
-//         res.render("pages/kinerja");
-//       }
-//     });
-//   } else {
-//     Kinerja.find({}, (err, data) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         // console.log(data);
-//         res.render("pages/kinerja");
-//       }
-//     });
-//   }
-// });
-
 router.get("/kinerja", requireAuth, async (req, res) => {
   const user = req.user;
   if (req.query.tahunData) {
@@ -365,6 +336,16 @@ router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
   res.redirect("/kinerja");
 });
 
+// Page Tata Kelola Gudang
+router.get("/gudang", requireAuth, async (req, res) => {
+  const length = (await Pers.find({})).length;
+  const user = req.user;
+  res.render("pages/gudang", {
+    user,
+    length,
+  });
+});
+
 // Menampilkan File Upload Excel Persediaan
 router.get("/upload-persediaan", requireAuth, (req, res) => {
   const user = req.user;
@@ -390,49 +371,6 @@ router.post("/gudang", upload.single("pers"), (req, res) => {
     x++;
   });
   res.redirect("/");
-});
-
-// Mengirim Hasil Inpuit ke Database
-// router.post("/", async (req, res) => {
-//   const sendKinerja = await Kinerja.insertMany(req.body);
-//   res.redirect("/kinerja");
-// });
-
-// // Menampilkan Form Edit Data
-// router.get("/kinerja/edit/:_id", async (req, res) => {
-//   const editKinerja = await Kinerja.findOne({ _id: req.params._id });
-//   res.render("kinerja/edit", {
-//     editKinerja: editKinerja,
-//   });
-// });
-
-// // Edit Data di Database
-// router.put("/kinerja", async (req, res) => {
-//   updateKinerja = await Kinerja.replaceOne(
-//     { _id: req.body._id },
-//     {
-//       unit: req.body.unit,
-//       produksi: req.body.produksi,
-//       ps: req.body.ps,
-//       pemakaianBB: req.body.pemakaianBB,
-//       nilaiKalor: req.body.nilaiKalor,
-//     }
-//   );
-//   res.redirect("/kinerja");
-// });
-
-// // Menghapus Data di Database
-// router.delete("/kinerja", async (req, res) => {
-//   const deleteKinerja = await Kinerja.deleteOne({ _id: req.body._id });
-//   res.redirect("/kinerja");
-// });
-
-// Page Tata Kelola Gudang
-router.get("/gudang", requireAuth, (req, res) => {
-  const user = req.user;
-  res.render("pages/gudang", {
-    user,
-  });
 });
 
 // Menangkap semua route yang dimasukkan

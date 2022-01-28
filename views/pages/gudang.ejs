@@ -58,9 +58,9 @@
     <!-- AWAL INPUT  -->
     <main id="main" class="main">
       <div class="d-flex justify-content-center mb-4">
-        <a href="input" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"><i class="bi-box-arrow-in-right"></i></a>
-        <div class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-pers"><i class="bi-upload"></i></div>
-        <a href="detail" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="bi-info-circle"></i></a>
+        <a href="input" class="btn btn-light me-2"><i class="bi-box-arrow-in-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"></i></a>
+        <div class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-pers"><i class="bi-upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload File"></i></div>
+        <a href="detail" class="btn btn-light me-2"><i class="bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"></i></a>
       </div>
       <section class="section gudang">
         <div class="row justify-content-center text-center">
@@ -68,7 +68,7 @@
             <div class="card card-item">
               <h5 class="card-header bg-secondary text-light" style="font-size: 20px">TOTAL ITEM</h5>
               <div class="card-body position-relative">
-                <p class="position-absolute start-50 top-50 translate-middle">13<span style="font-size: 20px; font-weight: normal"> Item</span></p>
+                <p class="position-absolute start-50 top-50 translate-middle"><%= length %><span style="font-size: 20px; font-weight: normal"> Item</span></p>
               </div>
               <div class="card-footer btn btn-success">Rincian Data</div>
             </div>
