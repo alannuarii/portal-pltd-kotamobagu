@@ -386,10 +386,20 @@ router.post("/gudang", upload.single("pers"), (req, res) => {
 // Menampilkan Detail Material Persediaan
 router.get("/detail-persediaan", requireAuth, async (req, res) => {
   const user = req.user;
+
+  // Menghitung Total Persediaan
+  arrTot = [];
+  const pers = await Pers.find({});
+  for (let i = 0; i < pers.length; i++) {
+    arrTot.push(pers[i].totHarga);
+  }
+  const totPers = arrTot.reduce((a, b) => a + b);
+
   const mat = await Pers.find({});
   res.render("pages/detail-persediaan", {
     user,
     mat,
+    totPers,
   });
 });
 
