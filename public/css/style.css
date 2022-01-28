@@ -1297,6 +1297,45 @@ tr:hover {
   font-weight: bolder;
 }
 
+.detail-pers .img {
+  position: relative;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.detail-pers .bi-patch-minus-fill {
+  font-size: 35px;
+  color: white;
+  position: absolute;
+  top: 185px;
+  left: 315px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.detail-pers .bi-patch-plus-fill {
+  font-size: 35px;
+  color: white;
+  position: absolute;
+  top: 185px;
+  left: 275px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.detail-pers .card:hover i {
+  opacity: 1;
+}
+
+.detail-pers i:hover {
+  cursor: pointer;
+  color: rgb(41, 40, 40);
+}
+
+.detail-pers .card:hover img {
+  opacity: 0.5;
+}
+
 /* Proper */
 .proper .card {
   background: rgb(238, 238, 238);

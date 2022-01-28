@@ -230,7 +230,7 @@ router.get("/safety-induction", requireAuth, (req, res) => {
   });
 });
 
-// Page Tata Kelola Gudang
+// Page Proper
 router.get("/proper", requireAuth, (req, res) => {
   const user = req.user;
   res.render("pages/proper", {
@@ -337,7 +337,7 @@ router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
 });
 
 // Page Tata Kelola Gudang
-router.get("/gudang", requireAuth, async (req, res) => {
+router.get("/inventory", requireAuth, async (req, res) => {
   const length = (await Pers.find({})).length;
 
   // Menghitung Total Persediaan
@@ -349,7 +349,7 @@ router.get("/gudang", requireAuth, async (req, res) => {
   const totPers = arrTot.reduce((a, b) => a + b);
 
   const user = req.user;
-  res.render("pages/gudang", {
+  res.render("pages/inventory", {
     user,
     length,
     totPers,
@@ -357,12 +357,12 @@ router.get("/gudang", requireAuth, async (req, res) => {
 });
 
 // Menampilkan File Upload Excel Persediaan
-router.get("/upload-persediaan", requireAuth, (req, res) => {
-  const user = req.user;
-  res.render("pages/upload-persediaan", {
-    user,
-  });
-});
+// router.get("/upload-persediaan", requireAuth, (req, res) => {
+//   const user = req.user;
+//   res.render("pages/upload-persediaan", {
+//     user,
+//   });
+// });
 
 // Upload File Excel Persediaan ke Database
 router.post("/gudang", upload.single("pers"), (req, res) => {
@@ -381,6 +381,16 @@ router.post("/gudang", upload.single("pers"), (req, res) => {
     x++;
   });
   res.redirect("/");
+});
+
+// Menampilkan Detail Material Persediaan
+router.get("/detail-persediaan", requireAuth, async (req, res) => {
+  const user = req.user;
+  const mat = await Pers.find({});
+  res.render("pages/detail-persediaan", {
+    user,
+    mat,
+  });
 });
 
 // Menangkap semua route yang dimasukkan
