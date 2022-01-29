@@ -19,6 +19,9 @@ const Pers = mongoose.model("persediaan", {
   },
   totHarga: {
     type: Number,
+    default: function () {
+      return this.stock * this.hargaSat;
+    },
   },
 });
 

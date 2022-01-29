@@ -403,6 +403,11 @@ router.get("/detail-persediaan", requireAuth, async (req, res) => {
   });
 });
 
+// Proses Tambah dan Kurang Material
+// router.put("/detail-persediaan", async (req, res) => {
+//   const updateMat = await Pers.updateOne({});
+// });
+
 // Menangkap semua route yang dimasukkan
 // Dipasang paling akhir agar tidak memblock raute yang telah ditentukan
 router.use("/", (req, res) => {
