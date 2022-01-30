@@ -94,34 +94,35 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form action="/gudang" method="post" enctype="multipart/form-data">
+                  <form method="post" action="/detail-persediaan">
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Nomor Material</label>
                       <div class="col-sm-9 d-flex">
-                        <input type="text" class="form-control" name="noMat" value="<%= e.noMat %>" disabled />
+                        <input type="text" class="form-control" name="noMat" value="<%= e.noMat %>" readonly />
+                        <input type="hidden" class="form-control" name="satuan" value="<%= e.satuan %>" />
                       </div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Deskripsi Material</label>
                       <div class="col-sm-9 d-flex">
-                        <input type="text" class="form-control" name="descMat" value="<%= e.descMat %>" disabled />
+                        <input type="text" class="form-control" name="descMat" value="<%= e.descMat %>" readonly />
                       </div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Stock Material</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="stock" value="<%= e.stock %>" disabled /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="stock" value="<%= e.stock %>" readonly /><span class="ms-2 py-2"><%= e.satuan %></span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Tanggal Masuk</label>
-                      <div class="col-sm-9 d-flex"><input type="date" class="form-control" name="dateIn" /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="date" class="form-control" name="dateIn" required /></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Material Masuk</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="matIn" value="0" /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="matIn" value="0" required /><span class="ms-2 py-2"><%= e.satuan %></span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Harga Satuan</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="hargaSat" value="<%= e.hargaSat %>" disabled /><span class="ms-2 py-2">Rupiah</span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="hargaSat" value="<%= e.hargaSat %>" readonly /><span class="ms-2 py-2">Rupiah</span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Total Harga</label>
@@ -144,34 +145,35 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form action="/gudang" method="post" enctype="multipart/form-data">
+                  <form method="post" action="/detail-persediaan">
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Nomor Material</label>
                       <div class="col-sm-9 d-flex">
-                        <input type="text" class="form-control" name="noMat" value="<%= e.noMat %>" disabled />
+                        <input type="text" class="form-control" name="noMat" value="<%= e.noMat %>" readonly />
+                        <input type="hidden" class="form-control" name="satuan" value="<%= e.satuan %>" />
                       </div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Deskripsi Material</label>
                       <div class="col-sm-9 d-flex">
-                        <input type="text" class="form-control" name="descMat" value="<%= e.descMat %>" disabled />
+                        <input type="text" class="form-control" name="descMat" value="<%= e.descMat %>" readonly />
                       </div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Stock Material</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="stock" value="<%= e.stock %>" disabled /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="stock" value="<%= e.stock %>" readonly /><span class="ms-2 py-2"><%= e.satuan %></span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Tanggal Keluar</label>
-                      <div class="col-sm-9 d-flex"><input type="date" class="form-control" name="dateOut" /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="date" class="form-control" name="dateOut" required /></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Material Keluar</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="matOut" value="0" /><span class="ms-2 py-2"><%= e.satuan %></span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="matOut" value="0" required /><span class="ms-2 py-2"><%= e.satuan %></span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Harga Satuan</label>
-                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="hargaSat" value="<%= e.hargaSat %>" disabled /><span class="ms-2 py-2">Rupiah</span></div>
+                      <div class="col-sm-9 d-flex"><input type="number" class="form-control" name="hargaSat" value="<%= e.hargaSat %>" readonly /><span class="ms-2 py-2">Rupiah</span></div>
                     </div>
                     <div class="mb-3 row">
                       <label class="col-sm-3 col-form-label">Total Harga</label>

@@ -1129,15 +1129,17 @@ h6 {
 /*--------------------------------------------------------------
   # Editanku
   --------------------------------------------------------------*/
-.table-detail tbody tr td {
+.detail-kinerja .table-detail tbody tr td,
+.mat-in .table-detail tbody tr td {
   text-align: center;
 }
 
-.table-detail thead tr th {
+.detail-kinerja .table-detail thead tr th,
+.mat-in .table-detail thead tr th {
   text-align: center;
 }
 
-.table-detail tbody tr td:nth-child(1) {
+.detail-kinerja .table-detail tbody tr td:nth-child(1) {
   text-align: left;
 }
 

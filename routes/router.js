@@ -8,6 +8,7 @@ const crypto = require("crypto");
 const User = require("../model/user");
 const Fuel = require("../model/bahanBakar");
 const Pers = require("../model/persMat");
+const MatInOut = require("../model/matInOut");
 const { cookie } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
 const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
@@ -336,9 +337,17 @@ router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
   res.redirect("/kinerja");
 });
 
+// Mengirim Hasil Inpuit ke Database
+router.post("/input", (req, res) => {
+  Kinerja.insertMany(req.body).then((result) => {
+    console.log(result);
+    res.redirect("/kinerja");
+  });
+});
+
 // Page Tata Kelola Gudang
 router.get("/inventory", requireAuth, async (req, res) => {
-  const length = (await Pers.find({})).length;
+  const length = (await Pers.find({ stock: { $gt: 0 } })).length;
 
   // Menghitung Total Persediaan
   arrTot = [];
@@ -395,7 +404,7 @@ router.get("/detail-persediaan", requireAuth, async (req, res) => {
   }
   const totPers = arrTot.reduce((a, b) => a + b);
 
-  const mat = await Pers.find({});
+  const mat = await Pers.find({ stock: { $gt: 0 } });
   res.render("pages/detail-persediaan", {
     user,
     mat,
@@ -403,10 +412,104 @@ router.get("/detail-persediaan", requireAuth, async (req, res) => {
   });
 });
 
+router.post("/detail-persediaan", async (req, res) => {
+  try {
+    if (req.body.matIn > 0) {
+      const Masuk = await Promise.all([
+        Pers.replaceOne(
+          {
+            noMat: req.body.noMat,
+          },
+          {
+            stock: parseInt(req.body.stock) + parseInt(req.body.matIn),
+            noMat: req.body.noMat,
+            satuan: req.body.satuan,
+            descMat: req.body.descMat,
+            hargaSat: req.body.hargaSat,
+          }
+        ),
+        MatInOut.insertMany(req.body),
+      ]);
+    } else if (req.body.matOut > 0) {
+      const Keluar = await Promise.all([
+        Pers.replaceOne(
+          {
+            noMat: req.body.noMat,
+          },
+          {
+            stock: parseInt(req.body.stock) - parseInt(req.body.matOut),
+            noMat: req.body.noMat,
+            satuan: req.body.satuan,
+            descMat: req.body.descMat,
+            hargaSat: req.body.hargaSat,
+          }
+        ),
+        MatInOut.insertMany(req.body),
+      ]);
+    }
+    res.redirect("/inventory");
+  } catch (error) {
+    console.log(error);
+  }
+});
 // Proses Tambah dan Kurang Material
-// router.put("/detail-persediaan", async (req, res) => {
-//   const updateMat = await Pers.updateOne({});
+// router.post("/detail-persediaan", (req, res) => {
+//   if (req.body.matIn > 0) {
+//     Pers.replaceOne(
+//       {
+//         noMat: req.body.noMat,
+//       },
+//       {
+//         stock: parseInt(req.body.stock) + parseInt(req.body.matIn),
+//         noMat: req.body.noMat,
+//         satuan: req.body.satuan,
+//         descMat: req.body.descMat,
+//         hargaSat: req.body.hargaSat,
+//       }
+//     ).then((result) => {
+//       console.log(result);
+//       res.redirect("/inventory");
+//     });
+//   } else if (req.body.matOut > 0) {
+//     Pers.replaceOne(
+//       {
+//         noMat: req.body.noMat,
+//       },
+//       {
+//         stock: parseInt(req.body.stock) - parseInt(req.body.matOut),
+//         noMat: req.body.noMat,
+//         satuan: req.body.satuan,
+//         descMat: req.body.descMat,
+//         hargaSat: req.body.hargaSat,
+//       }
+//     ).then((result) => {
+//       console.log(result);
+//       res.redirect("/inventory");
+//     });
+//   }
 // });
+
+// Page Material Masuk
+router.get("/material-masuk", requireAuth, async (req, res) => {
+  const user = req.user;
+  const materialIn = await MatInOut.find({ matIn: { $exists: true } });
+  // console.log(materialIn);
+  res.render("pages/material-masuk", {
+    user,
+    materialIn,
+  });
+});
+
+// Page Material Keluar
+router.get("/material-keluar", requireAuth, async (req, res) => {
+  const user = req.user;
+  const materialOut = await MatInOut.find({ matOut: { $exists: true } });
+  // console.log(materialOut);
+  res.render("pages/material-keluar", {
+    user,
+    materialOut,
+  });
+});
 
 // Menangkap semua route yang dimasukkan
 // Dipasang paling akhir agar tidak memblock raute yang telah ditentukan

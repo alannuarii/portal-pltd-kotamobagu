@@ -1,29 +1,27 @@
 const mongoose = require("mongoose");
 
 // Membuat Schema
-const Pers = mongoose.model("persediaan", {
+const MatInOut = mongoose.model("matinout", {
   noMat: {
     type: String,
   },
   descMat: {
     type: String,
   },
+  matIn: {
+    type: Number,
+  },
+  dateIn: {
+    type: Date,
+  },
+  matOut: {
+    type: Number,
+  },
+  dateOut: {
+    type: Date,
+  },
   satuan: {
     type: String,
-  },
-  stock: {
-    type: Number,
-    default: 0,
-  },
-  hargaSat: {
-    type: Number,
-    default: 0,
-  },
-  totHarga: {
-    type: Number,
-    default: function () {
-      return this.stock * this.hargaSat;
-    },
   },
 });
 
@@ -38,4 +36,4 @@ const Pers = mongoose.model("persediaan", {
 
 // pers1.save().then((data) => console.log(data));
 
-module.exports = Pers;
+module.exports = MatInOut;
