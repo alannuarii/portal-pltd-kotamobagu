@@ -57,21 +57,20 @@
 
     <!-- AWAL INPUT  -->
     <main id="main" class="main">
-      <section class="section mat-in">
+      <section class="section">
         <div class="row">
           <div class="text-center">
             <span style="font-size: 30px; font-weight: lighter">QR CODE</span><span style="font-size: 30px; font-weight: bolder; color: #0d5a71"> GENERATOR</span>
             <hr />
           </div>
-
-          <div class="col-12">
-            <div class="card" style="height: 500px">
-              <h4>Input</h4>
-              <p>Please type the URL or Text below and click Generate!</p>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-10">
+            <div class="card p-5" style="height: 415px">
+              <p>Masukkan URL kemudian klik Generate!</p>
               <form class="form" action="/qr-code" method="POST">
-                <input name="url" class="form-control" placeholder="URL or Text" type="text" required />
-                <br />
-                <button type="submit" class="btn btn-primary" value="Get QR">Generate</button>
+                <input name="url" class="form-control form-control-lg" placeholder="URL or Text" type="text" required />
+                <div class="d-flex justify-content-center"><button type="submit" class="btn btn-success mt-3" style="width: 200px">Generate</button></div>
               </form>
             </div>
           </div>
