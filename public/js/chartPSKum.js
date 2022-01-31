@@ -1,6 +1,6 @@
 const chartPSKum = document.addEventListener("DOMContentLoaded", () => {
   new Chart(document.querySelector("#chartPSKum"), {
-    type: "bar",
+    type: "line",
     data: {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [

@@ -5,11 +5,12 @@ const Mesin = require("../model/dataMesin");
 const xlsx = require("xlsx");
 const upload = require("../config/upload");
 const crypto = require("crypto");
+const qr = require("qrcode");
 const User = require("../model/user");
 const Fuel = require("../model/bahanBakar");
 const Pers = require("../model/persMat");
 const MatInOut = require("../model/matInOut");
-const { cookie } = require("express/lib/response");
+const { cookie, append } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
 const { getEAFY, getEFORY, getSOFY, getPSY, getSFCY } = require("../public/js/kinerjaKTMYear");
 const { getKumEAF, getKumEFOR, getKumSOF, getKumPS, getKumSFC, getKumProd } = require("../public/js/kinerjaKumKTM");
@@ -508,6 +509,37 @@ router.get("/material-keluar", requireAuth, async (req, res) => {
   res.render("pages/material-keluar", {
     user,
     materialOut,
+  });
+});
+
+// Menampilkan Hasil Generate QR Code
+router.get("/qr-generator", requireAuth, async (req, res) => {
+  const user = req.user;
+  res.render("pages/qr-generator", {
+    user,
+  });
+});
+
+// Proses Pembuatan QR Code
+router.post("/qr-code", requireAuth, (req, res) => {
+  const user = req.user;
+  const url = req.body.url;
+
+  // If the input is null return "Empty Data" error
+  if (url.length === 0) res.send("Empty Data!");
+
+  // Let us convert the input stored in the url and return it as a representation of the QR Code image contained in the Data URI(Uniform Resource Identifier)
+  // It shall be returned as a png image format
+  // In case of an error, it will save the error inside the "err" variable and display it
+
+  qr.toDataURL(url, (err, src) => {
+    if (err) res.send("Error occured");
+
+    // Let us return the QR code image as our response and set it to be the source used in the webpage
+    res.render("pages/qr-code", {
+      user,
+      src,
+    });
   });
 });
 

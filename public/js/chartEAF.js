@@ -1,6 +1,6 @@
 const chartEAF = document.addEventListener("DOMContentLoaded", () => {
   new Chart(document.querySelector("#chartEAF"), {
-    type: "bar",
+    type: "line",
     data: {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
@@ -16,7 +16,6 @@ const chartEAF = document.addEventListener("DOMContentLoaded", () => {
       ],
     },
     options: {
-      
       scales: {
         y: {
           beginAtZero: true,
