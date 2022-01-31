@@ -19,6 +19,9 @@ const Pers = mongoose.model("persediaan", {
     type: Number,
     default: 0,
   },
+  fotoMat: {
+    type: String,
+  },
   totHarga: {
     type: Number,
     default: function () {

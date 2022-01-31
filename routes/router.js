@@ -374,7 +374,7 @@ router.get("/inventory", requireAuth, async (req, res) => {
 // });
 
 // Upload File Excel Persediaan ke Database
-router.post("/gudang", upload.single("pers"), (req, res) => {
+router.post("/inventory", upload.single("pers"), (req, res) => {
   const workbook = xlsx.readFile(req.file.path);
   const sheet_namelist = workbook.SheetNames;
   let x = 0;
