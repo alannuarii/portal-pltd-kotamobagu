@@ -19,6 +19,10 @@ const chartEFOR = document.addEventListener("DOMContentLoaded", () => {
       scales: {
         y: {
           beginAtZero: true,
+          title: {
+            display: "true",
+            text: "Persen (%)",
+          },
         },
       },
       plugins: {

@@ -66,9 +66,9 @@
           </div>
           <div class="col-6 mb-3 d-flex justify-content-end align-content-center">
             
-            <a href="input" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"><i class="bi-box-arrow-in-right"></i></a>
-            <a href="upload-kinerja" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"><i class="bi-upload"></i></a>
-            <a href="detail" class="btn btn-light me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="bi-info-circle"></i></a>
+            <a href="input" class="btn btn-light me-2" ><i class="bi-box-arrow-in-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"></i></a>
+            <a href="upload-kinerja" class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-kinerja"><i class="bi-upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"></i></a>
+            <a href="detail" class="btn btn-light me-2" ><i class="bi-info-circle"data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"></i></a>
 
             <form action="/kinerja" method="GET" enctype="multipart/form-data">
               <select id="selectyear" class="form-select" name="tahunData" onchange="this.form.submit()">
@@ -241,6 +241,25 @@
           </div>
         </div>
       </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modal-kinerja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Upload File Kinerja</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="/kinerja" method="post" enctype="multipart/form-data" class="d-flex justify-content-end py-3">
+                <label for=""></label>
+                <input type="file" class="form-control" name="kinerja" id="kinerja" />
+                <input type="submit" class="btn btn-success ms-2" value="Upload" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir Modal  -->
     </main>
     <!-- End #main -->
     <!-- AKHIR INPUT  -->

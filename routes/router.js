@@ -9,6 +9,7 @@ const qr = require("qrcode");
 const User = require("../model/user");
 const Fuel = require("../model/bahanBakar");
 const Pers = require("../model/persMat");
+const Tamu = require("../model/bukuTamu");
 const MatInOut = require("../model/matInOut");
 const { cookie, append } = require("express/lib/response");
 const { getEAF, getEFOR, getSOF, getPS, getSFC } = require("../public/js/kinerjaKTM");
@@ -140,26 +141,28 @@ router.get("/", requireAuth, async (req, res) => {
   const prod = await getKumProd();
   const fuel = await Fuel.findOne({});
   // console.log(fuel);
-  const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
-  const EAFU = [];
-  const EFORU = [];
-  const SOFU = [];
-  const PSU = [];
-  const SFCU = [];
-  for (i = 0; i < 6; i++) {
-    EAFU.push(kinUnit[i].eaf);
-    EFORU.push(kinUnit[i].efor);
-    SOFU.push(kinUnit[i].sof);
-    PSU.push(kinUnit[i].ps);
-    SFCU.push(kinUnit[i].sfcBruto);
-  }
+  // const kinUnit = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] })
+  //   .sort({ namaUnit: 1 })
+  //   .skip(6);
+  // const EAFU = [];
+  // const EFORU = [];
+  // const SOFU = [];
+  // const PSU = [];
+  // const SFCU = [];
+  // for (i = 0; i < 6; i++) {
+  //   EAFU.push(kinUnit[i].eaf);
+  //   EFORU.push(kinUnit[i].efor);
+  //   SOFU.push(kinUnit[i].sof);
+  //   PSU.push(kinUnit[i].ps);
+  //   SFCU.push(kinUnit[i].sfcBruto);
+  // }
   res.render("pages/index", {
-    EAFU: JSON.stringify(EAFU),
-    EFORU: JSON.stringify(EFORU),
-    SOFU: JSON.stringify(SOFU),
-    PSU: JSON.stringify(PSU),
-    SFCU: JSON.stringify(SFCU),
-    Prod: JSON.stringify(prod),
+    // EAFU: JSON.stringify(EAFU),
+    // EFORU: JSON.stringify(EFORU),
+    // SOFU: JSON.stringify(SOFU),
+    // PSU: JSON.stringify(PSU),
+    // SFCU: JSON.stringify(SFCU),
+    // Prod: JSON.stringify(prod),
     produksi: prod,
     fuel,
     user,
@@ -320,7 +323,7 @@ router.get("/upload-kinerja", requireAuth, (req, res) => {
 });
 
 // Upload File Excel Kinerja ke Database
-router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
+router.post("/kinerja", upload.single("kinerja"), (req, res) => {
   const workbook = xlsx.readFile(req.file.path);
   const sheet_namelist = workbook.SheetNames;
   let x = 0;
@@ -335,7 +338,7 @@ router.post("/upload-kinerja", upload.single("kinerja"), (req, res) => {
     });
     x++;
   });
-  res.redirect("/kinerja");
+  res.redirect("/");
 });
 
 // Mengirim Hasil Inpuit ke Database
@@ -413,6 +416,7 @@ router.get("/detail-persediaan", requireAuth, async (req, res) => {
   });
 });
 
+// Proses Tambah dan Kurang Material
 router.post("/detail-persediaan", async (req, res) => {
   try {
     if (req.body.matIn > 0) {
@@ -453,42 +457,6 @@ router.post("/detail-persediaan", async (req, res) => {
     console.log(error);
   }
 });
-// Proses Tambah dan Kurang Material
-// router.post("/detail-persediaan", (req, res) => {
-//   if (req.body.matIn > 0) {
-//     Pers.replaceOne(
-//       {
-//         noMat: req.body.noMat,
-//       },
-//       {
-//         stock: parseInt(req.body.stock) + parseInt(req.body.matIn),
-//         noMat: req.body.noMat,
-//         satuan: req.body.satuan,
-//         descMat: req.body.descMat,
-//         hargaSat: req.body.hargaSat,
-//       }
-//     ).then((result) => {
-//       console.log(result);
-//       res.redirect("/inventory");
-//     });
-//   } else if (req.body.matOut > 0) {
-//     Pers.replaceOne(
-//       {
-//         noMat: req.body.noMat,
-//       },
-//       {
-//         stock: parseInt(req.body.stock) - parseInt(req.body.matOut),
-//         noMat: req.body.noMat,
-//         satuan: req.body.satuan,
-//         descMat: req.body.descMat,
-//         hargaSat: req.body.hargaSat,
-//       }
-//     ).then((result) => {
-//       console.log(result);
-//       res.redirect("/inventory");
-//     });
-//   }
-// });
 
 // Page Material Masuk
 router.get("/material-masuk", requireAuth, async (req, res) => {
@@ -513,7 +481,7 @@ router.get("/material-keluar", requireAuth, async (req, res) => {
 });
 
 // Menampilkan Hasil Generate QR Code
-router.get("/qr-generator", requireAuth, async (req, res) => {
+router.get("/qr-generator", requireAuth, (req, res) => {
   const user = req.user;
   res.render("pages/qr-generator", {
     user,
@@ -528,10 +496,6 @@ router.post("/qr-code", requireAuth, (req, res) => {
   // If the input is null return "Empty Data" error
   if (url.length === 0) res.send("Empty Data!");
 
-  // Let us convert the input stored in the url and return it as a representation of the QR Code image contained in the Data URI(Uniform Resource Identifier)
-  // It shall be returned as a png image format
-  // In case of an error, it will save the error inside the "err" variable and display it
-
   qr.toDataURL(url, (err, src) => {
     if (err) res.send("Error occured");
 
@@ -540,6 +504,32 @@ router.post("/qr-code", requireAuth, (req, res) => {
       user,
       src,
     });
+  });
+});
+
+// Buku Tamu
+router.get("/buku-tamu", requireAuth, async (req, res) => {
+  const user = req.user;
+  const visitors = await Tamu.find({});
+  res.render("pages/buku-tamu", {
+    user,
+    visitors,
+  });
+});
+
+// Form Buku Tamu
+router.get("/form-tamu", (req, res) => {
+  const user = { name: "ULPLTD Kotamobagu", email: "" };
+  res.render("pages/form-tamu", {
+    user,
+  });
+});
+
+// Mengirim Hasil Inpuit ke Database
+router.post("/form-tamu", (req, res) => {
+  Tamu.insertMany(req.body).then((result) => {
+    console.log(result);
+    res.redirect("/buku-tamu");
   });
 });
 

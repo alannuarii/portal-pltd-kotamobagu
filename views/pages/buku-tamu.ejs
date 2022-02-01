@@ -60,7 +60,7 @@
       <section class="section mat-in">
         <div class="row">
           <div class="text-center">
-            <span style="font-size: 30px; font-weight: lighter">MATERIAL</span><span style="font-size: 30px; font-weight: bolder; color: #0d5a71"> KELUAR</span>
+            <span style="font-size: 30px; font-weight: lighter">BUKU TAMU</span><span style="font-size: 30px; font-weight: bolder; color: #0d5a71"> DIGITAL</span>
             <hr />
           </div>
 
@@ -70,19 +70,23 @@
                 <table class="table table-detail">
                   <thead>
                     <tr>
-                      <th scope="col">Nomor Material</th>
-                      <th scope="col">Deskripsi Material</th>
-                      <th scope="col">Material Masuk</th>
-                      <th scope="col">Tanggal Masuk</th>
+                      <th scope="col">No.</th>
+                      <th scope="col">Tanggal Kunjungan</th>
+                      <th scope="col">Nama Tamu</th>
+                      <th scope="col">Perusahaan / Instansi</th>
+                      <th scope="col">Nomor Telepon</th>
+                      <th scope="col">Tujuan Berkunjung</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <% materialOut.forEach(mOut => { %>
+                    <% visitors.forEach((visitor,i) => { %>
                     <tr class="text-center">
-                      <td><%= mOut.noMat %></td>
-                      <td><%= mOut.descMat %></td>
-                      <td><%= mOut.matIn %> <%= mOut.satuan %></td>
-                      <td><%= mOut.dateOut.toUTCString() %></td>
+                      <td><%= i+1 %></td>
+                      <td><%= visitor.tglDatang.toUTCString() %></td>
+                      <td><%= visitor.nama %></td>
+                      <td><%= visitor.instansi %></td>
+                      <td><%= visitor.nohp %></td>
+                      <td><%= visitor.tujuan %></td>
                     </tr>
                     <% }) %>
                   </tbody>

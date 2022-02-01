@@ -1,0 +1,4 @@
+Rencana Penambahan Fitur dan Konten:
+1. Membuat working permit yang dapat diconvert ke pdf
+2. Memindahkan persediaan bahan bakar ke bagian operasi
+3. 

@@ -1,0 +1,16 @@
+.form-tamu .title {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+@media (max-width: 820px) {
+  .form-tamu .title {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-tamu .title {
+    font-size: 18px;
+  }
+}
