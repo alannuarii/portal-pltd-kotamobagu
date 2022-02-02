@@ -367,6 +367,15 @@ h6 {
     width: 280px;
   }
 }
+.log img {
+  max-height: 80px;
+}
+.log span {
+  font-size: 23px;
+  font-weight: 700;
+  color: #012970;
+  font-family: "Nunito", sans-serif;
+}
 .logo img {
   max-height: 38px;
   margin-right: 10px;
@@ -1486,5 +1495,3 @@ tbody tr:hover {
   /* display: block; */
   color: white;
 }
-
-
