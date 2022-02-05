@@ -135,8 +135,23 @@ router.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-// Menampilkan Data di Halaman Kinerja
+// Menampilkan Halaman Home
 router.get("/", requireAuth, async (req, res) => {
+  const user = req.user;
+  const chartHOP = [];
+  const fuel = await Fuel.findOne({});
+  chartHOP.push(fuel.persediaan);
+  chartHOP.push(fuel.selisih);
+  console.log(chartHOP);
+  res.render("pages/home", {
+    user,
+    chartHOP: JSON.stringify(chartHOP),
+    fuel,
+  });
+});
+
+// Menampilkan Data di Halaman Kinerja
+router.get("/index", requireAuth, async (req, res) => {
   const user = req.user;
   const prod = await getKumProd();
   const fuel = await Fuel.findOne({});

@@ -19,6 +19,12 @@ const Fuel = mongoose.model("fuel", {
       return this.kapasitas - this.pemakaian;
     },
   },
+  selisih: {
+    type: Number,
+    default: function () {
+      return this.kapasitas - this.persediaan;
+    },
+  },
   hop: {
     type: Number,
     default: function () {

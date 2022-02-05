@@ -1495,3 +1495,8 @@ tbody tr:hover {
   /* display: block; */
   color: white;
 }
+
+/* Home */
+.home .card {
+  border-radius: 46px;
+}
