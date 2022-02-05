@@ -138,15 +138,28 @@ router.get("/logout", (req, res) => {
 // Menampilkan Halaman Home
 router.get("/", requireAuth, async (req, res) => {
   const user = req.user;
+
+  // Energi Primer
   const chartHOP = [];
   const fuel = await Fuel.findOne({});
   chartHOP.push(fuel.persediaan);
   chartHOP.push(fuel.selisih);
-  console.log(chartHOP);
+
+  // Kinerja
+  const kinerja = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] })
+    .sort({ namaUnit: 1 })
+    .skip(6);
+
+  // Produksi
+  const produksi = [];
+  for (let i = 0; i < 6; i++) {
+    produksi.push(kinerja[i].produksi);
+  }
   res.render("pages/home", {
     user,
     chartHOP: JSON.stringify(chartHOP),
     fuel,
+    produksi: JSON.stringify(produksi),
   });
 });
 

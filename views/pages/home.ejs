@@ -7,10 +7,11 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="" class="logo d-flex align-items-center">
-          <img src="img/logopln.png" alt="" />
-          <span class="d-none d-lg-block">PORTAL ULPLTD KOTAMOBAGU</span>
+          <img src="img/logopln2.png" alt="" />
+          <!-- <span class="d-none d-lg-block">PORTAL ULPLTD KOTAMOBAGU</span> -->
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
+        <span class="d-none d-lg-block ms-3 fs-3 fw-bolder portal"></span>
       </div>
       <!-- End Logo -->
 
@@ -116,52 +117,63 @@
           <div class="row">
             <!-- Awal Kinerja  -->
             <div class="col-12">
-              <div class="card justify-content-center" style="height: 218px; width: 100%">
-                <div class="d-flex jus"></div>
-                <div class="text-center">
-                  <p style="margin: 0; font-size: 30px">EAF</p>
-                  <p style="font-size: 40px; font-weight: bolder; margin: 0">98%</p>
-                  <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span class="ms-1">dari bulan lalu</span>
+              <div class="card justify-content-center position-relative" style="height: 218px; width: 100%">
+                <div class="d-flex justify-content-evenly">
+                  <div class="text-center">
+                    <p style="margin: 0; font-size: 30px">EAF</p>
+                    <p style="font-size: 35px; font-weight: bolder; margin: 0">98%</p>
+                    <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span style="font-size: 13px" class="ms-1">dari bulan lalu</span>
+                  </div>
+                  <div class="text-center">
+                    <p style="margin: 0; font-size: 30px">EFOR</p>
+                    <p style="font-size: 35px; font-weight: bolder; margin: 0">98%</p>
+                    <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span style="font-size: 13px" class="ms-1">dari bulan lalu</span>
+                  </div>
+                  <div class="text-center">
+                    <p style="margin: 0; font-size: 30px">SOF</p>
+                    <p style="font-size: 35px; font-weight: bolder; margin: 0">98%</p>
+                    <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span style="font-size: 13px" class="ms-1">dari bulan lalu</span>
+                  </div>
+                  <div class="text-center">
+                    <p style="margin: 0; font-size: 30px">PS</p>
+                    <p style="font-size: 35px; font-weight: bolder; margin: 0">98%</p>
+                    <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span style="font-size: 13px" class="ms-1">dari bulan lalu</span>
+                  </div>
+                  <div class="text-center">
+                    <p style="margin: 0; font-size: 30px">SFC</p>
+                    <p style="font-size: 35px; font-weight: bolder; margin: 0">0,275 Lt/kWh</p>
+                    <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57 Lt/kWh </span><span style="font-size: 13px" class="ms-1">dari bulan lalu</span>
+                  </div>
                 </div>
-                <div class="text-center">
-                  <p style="margin: 0; font-size: 30px">EAF</p>
-                  <p style="font-size: 40px; font-weight: bolder; margin: 0">98%</p>
-                  <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span class="ms-1">dari bulan lalu</span>
-                </div>
-                <div class="text-center">
-                  <p style="margin: 0; font-size: 30px">EAF</p>
-                  <p style="font-size: 40px; font-weight: bolder; margin: 0">98%</p>
-                  <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span class="ms-1">dari bulan lalu</span>
-                </div>
-                <div class="text-center">
-                  <p style="margin: 0; font-size: 30px">EAF</p>
-                  <p style="font-size: 40px; font-weight: bolder; margin: 0">98%</p>
-                  <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span class="ms-1">dari bulan lalu</span>
-                </div>
-                <div class="text-center">
-                  <p style="margin: 0; font-size: 30px">EAF</p>
-                  <p style="font-size: 40px; font-weight: bolder; margin: 0">98%</p>
-                  <span style="background-color: #dff4e6; border-radius: 50px; padding: 5px">+4,57% </span><span class="ms-1">dari bulan lalu</span>
-                </div>
+                <p style="font-style: italic; font-size: 13px; position: absolute; left: 30px; bottom: -10px">*Data Bulan Januari 2022</p>
               </div>
             </div>
             <!-- Akhir Kinerja  -->
           </div>
           <div class="row">
+            <!-- Awal Produksi  -->
             <div class="col-6">
-              <div class="card" style="height: 400px; width: 100%"></div>
+              <div class="card justify-content-center position-relative" style="height: 400px; width: 100%">
+                <canvas id="chartProduksi" style="height: 250px; width: 400px"></canvas>
+                <script>
+                  const produksi = <%- produksi %>;
+                  Chart.register(ChartDataLabels);
+                </script>
+                <p style="font-style: italic; font-size: 13px; position: absolute; left: 30px; bottom: -10px">*Data Bulan Januari 2022</p>
+              </div>
             </div>
-
+            <!-- Akhir Produksi   -->
             <!-- Awal Energi Primer  -->
             <div class="col-6 position-relative">
-              <div class="card justify-content-center" style="height: 400px; width: 100%">
+              <div class="card justify-content-center position-relative" style="height: 400px; width: 100%">
                 <canvas id="chartHOP" style="max-height: 350px"></canvas>
                 <script>
                   const hop = <%- chartHOP %>;
                 </script>
                 <div class="position-absolute top-50 start-50 translate-middle text-center">
                   <p style="font-size: 30px; font-weight: lighter; margin: 0">HOP</p>
-                  <p style="font-size: 30px; font-weight: bolder; background-color: gray; border-radius: 50px; color: white; padding: 10px"><%= Math.round(fuel.hop) %> Hari</p>
+                  <p class="hop" style="font-size: 30px; font-weight: bolder; background-color: gray; border-radius: 50px; color: white; padding: 10px"><%= Math.round(fuel.hop) %> Hari</p>
+                  <p class="detail" style="font-size: 30px; font-weight: bolder; background-color: #157347; border-radius: 50px; color: white; padding: 10px">Detail</p>
                 </div>
               </div>
             </div>

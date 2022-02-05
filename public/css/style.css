@@ -14,7 +14,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #e3f2fd;
+  background: #acdff0;
   color: #444444;
 }
 
@@ -470,10 +470,10 @@ h6 {
 }
 .header-nav .nav-icon {
   font-size: 20px;
-  color: #012970;
+  color: #414141;
 }
 .header-nav .nav-profile {
-  color: #012970;
+  color: #414141;
 }
 .header-nav .nav-profile img {
   max-height: 36px;
@@ -1499,4 +1499,25 @@ tbody tr:hover {
 /* Home */
 .home .card {
   border-radius: 46px;
+}
+
+.home .detail {
+  position: absolute;
+  left: 9px;
+  top: 45px;
+  opacity: 0.9;
+  visibility: hidden;
+}
+
+.home .card:hover .detail {
+  visibility: visible;
+}
+
+.home .detail:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.home .card:hover .hop {
+  visibility: hidden;
 }

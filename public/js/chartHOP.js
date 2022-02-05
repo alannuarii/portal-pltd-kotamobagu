@@ -8,8 +8,8 @@ const chartHOP = document.addEventListener("DOMContentLoaded", () => {
           label: "HOP",
           data: hop,
           fill: false,
-          backgroundColor: ["#7D70B7", "rgba(255, 0, 0, 0)"],
-          borderColor: ["#7D70B7", "rgba(255, 0, 0, 0)"],
+          backgroundColor: ["#dda15e", "rgba(255, 0, 0, 0)"],
+          borderColor: ["#dda15e", "rgba(255, 0, 0, 0)"],
           tension: 0.1,
           borderWidth: 2.5,
         },
@@ -18,6 +18,9 @@ const chartHOP = document.addEventListener("DOMContentLoaded", () => {
     options: {
       responsive: true,
       plugins: {
+        tooltip: {
+          enabled: false,
+        },
         legend: {},
       },
     },
