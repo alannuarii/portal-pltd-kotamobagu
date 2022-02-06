@@ -2,24 +2,27 @@ const mongoose = require("mongoose");
 
 // Membuat Schema
 const Pers = mongoose.model("persediaan", {
+  dateIn: {
+    type: Date,
+  },
   noMat: {
     type: String,
   },
   descMat: {
     type: String,
   },
-  satuan: {
-    type: String,
-  },
   stock: {
     type: Number,
     default: 0,
+  },
+  satuan: {
+    type: String,
   },
   hargaSat: {
     type: Number,
     default: 0,
   },
-  fotoMat: {
+  image: {
     type: String,
   },
   totHarga: {

@@ -351,8 +351,8 @@ router.get("/upload-kinerja", requireAuth, (req, res) => {
 });
 
 // Upload File Excel Kinerja ke Database
-router.post("/kinerja", upload.single("kinerja"), (req, res) => {
-  const workbook = xlsx.readFile(req.file.path);
+router.post("/kinerja", upload, (req, res) => {
+  const workbook = xlsx.readFile(req.files.kinerja[0].path);
   const sheet_namelist = workbook.SheetNames;
   let x = 0;
   sheet_namelist.forEach((element) => {
@@ -361,7 +361,7 @@ router.post("/kinerja", upload.single("kinerja"), (req, res) => {
       if (err) {
         res.json({ massage: err });
       } else {
-        console.log(req.file);
+        console.log(req.files);
       }
     });
     x++;
@@ -406,22 +406,57 @@ router.get("/inventory", requireAuth, async (req, res) => {
 // });
 
 // Upload File Excel Persediaan ke Database
-router.post("/inventory", upload.single("pers"), (req, res) => {
-  const workbook = xlsx.readFile(req.file.path);
-  const sheet_namelist = workbook.SheetNames;
-  let x = 0;
-  sheet_namelist.forEach((element) => {
-    const xlData = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
-    Pers.insertMany(xlData, (err, data) => {
-      if (err) {
-        res.json({ massage: err });
-      } else {
-        console.log(req.file);
-      }
+// router.post("/inventory", upload.single("pers"), (req, res) => {
+//   const workbook = xlsx.readFile(req.file.path);
+//   const sheet_namelist = workbook.SheetNames;
+//   let x = 0;
+//   sheet_namelist.forEach((element) => {
+//     const xlData = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
+//     Pers.insertMany(xlData, (err, data) => {
+//       if (err) {
+//         res.json({ massage: err });
+//       } else {
+//         console.log(req.file);
+//       }
+//     });
+//     x++;
+//   });
+//   res.redirect("/");
+// });
+
+// Mengirim Hasil Inpuit Material ke Database
+// const upImage = upload.fields([{ name: "image", maxCount: 1 }]);
+router.post("/inventory", upload, (req, res) => {
+  if (req.body.stock > 0) {
+    Pers.insertMany({
+      dateIn: req.body.dateIn,
+      noMat: req.body.noMat,
+      descMat: req.body.descMat,
+      stock: req.body.stock,
+      satuan: req.body.satuan,
+      hargaSat: req.body.hargaSat,
+      image: req.files.image[0].path,
+    }).then((result) => {
+      console.log(result);
+      res.redirect("/");
     });
-    x++;
-  });
-  res.redirect("/");
+  } else {
+    const workbook = xlsx.readFile(req.files.pers[0].path);
+    const sheet_namelist = workbook.SheetNames;
+    let x = 0;
+    sheet_namelist.forEach((element) => {
+      const xlData = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
+      Pers.insertMany(xlData, (err, data) => {
+        if (err) {
+          res.json({ massage: err });
+        } else {
+          console.log(req.files);
+        }
+      });
+      x++;
+    });
+    res.redirect("/");
+  }
 });
 
 // Menampilkan Detail Material Persediaan

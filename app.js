@@ -9,7 +9,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 // Menggunakan Built-In Middleware untuk Akses File Static di Folder Public
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname, "/public")));
 
 // Parsing Body Request
 app.use(express.urlencoded({ extended: true }));
