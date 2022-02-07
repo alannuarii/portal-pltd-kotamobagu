@@ -1177,14 +1177,34 @@ tbody tr:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 } */
 
-.data-mesin .card img {
-  opacity: 0.7;
+/* Data Mesin  */
+.data-mesin .card {
+  transition: all 0.3s ease-in-out;
 }
 
-.data-mesin .card:hover img {
-  opacity: 1;
+.data-mesin .card span {
+  display: inline;
+  transition: all 0.3s ease-in-out;
 }
 
+.data-mesin a {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.data-mesin .card:hover a {
+  display: block;
+}
+
+.data-mesin .card:hover span {
+  display: none;
+}
+
+.data-mesin .card:hover {
+  border-radius: 100px;
+}
+
+/* Dashboard (Gak Terpakai)  */
 .carousel-item img {
   width: 100%;
   top: 0;
@@ -1297,7 +1317,6 @@ tbody tr:hover {
   display: block;
   position: static;
   opacity: 1;
-  color: black;
 }
 
 .gudang .card .card-footer:hover {
