@@ -1556,3 +1556,22 @@ tbody tr:hover {
 .home .card:hover .hop {
   visibility: hidden;
 }
+
+/* Company Profile  */
+/* Hero Section  */
+.hero-section {
+  background-color: #00a2ba;
+  height: 100vh;
+  width: 100%;
+}
+
+.hero-tagline {
+  color: white;
+}
+
+/* Location Section  */
+.location-section {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+}
