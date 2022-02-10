@@ -1202,6 +1202,7 @@ tbody tr:hover {
 
 .data-mesin .card:hover {
   border-radius: 100px;
+  transform: scale(1.1);
 }
 
 /* Dashboard (Gak Terpakai)  */
@@ -1375,6 +1376,10 @@ tbody tr:hover {
 
 .detail-pers .card:hover img {
   opacity: 0.5;
+}
+
+.detail-pers .card:hover {
+  transform: scale(1.03);
 }
 
 /* Proper */
