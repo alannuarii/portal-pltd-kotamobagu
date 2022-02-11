@@ -1569,9 +1569,23 @@ tbody tr:hover {
   color: white;
 }
 
+/* Pendahuluan Section  */
+.pendahuluan-section {
+  height: 100vh;
+  width: 100%;
+  background-color: #1c1c1c;
+}
+
 /* Location Section  */
 .location-section {
   height: 100vh;
   width: 100%;
   background-color: white;
+}
+
+/* Location Section  */
+.mesin-section {
+  height: 100vh;
+  width: 100%;
+  background-color: #1c1c1c;
 }
