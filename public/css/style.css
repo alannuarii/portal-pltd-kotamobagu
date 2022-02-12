@@ -1560,13 +1560,13 @@ tbody tr:hover {
 /* Company Profile  */
 /* Hero Section  */
 .hero-section {
-  background-color: #00a2ba;
+  background-color: #ddeefa;
   height: 100vh;
   width: 100%;
 }
 
 .hero-tagline {
-  color: white;
+  color: #00a2ba;
 }
 
 /* Pendahuluan Section  */
