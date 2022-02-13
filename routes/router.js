@@ -146,9 +146,7 @@ router.get("/", requireAuth, async (req, res) => {
   chartHOP.push(fuel.selisih);
 
   // Kinerja
-  const kinerja = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] })
-    .sort({ namaUnit: 1 })
-    .skip(6);
+  const kinerja = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] }).sort({ namaUnit: 1 });
 
   // Produksi
   const produksi = [];
@@ -223,13 +221,13 @@ router.get("/input", requireAuth, (req, res) => {
 router.get("/detail", requireAuth, async (req, res) => {
   const user = req.user;
   if (req.query.bulanData && req.query.tahunData) {
-    const detail = await Kinerja.find({ $and: [{ tahunData: req.query.tahunData }, { bulanData: req.query.bulanData }] });
+    const detail = await Kinerja.find({ $and: [{ tahunData: req.query.tahunData }, { bulanData: req.query.bulanData }] }).sort({ namaUnit: 1 });
     res.render("pages/detail", {
       user,
       detail,
     });
   } else {
-    const detail = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] });
+    const detail = await Kinerja.find({ $and: [{ tahunData: 2021 }, { bulanData: 12 }] }).sort({ namaUnit: 1 });
     res.render("pages/detail", {
       user,
       detail,
@@ -287,57 +285,53 @@ router.get("/layout", requireAuth, (req, res) => {
   });
 });
 
+// Menampilkan Grafik Kinerja
 router.get("/kinerja", requireAuth, async (req, res) => {
   const user = req.user;
-  if (req.query.tahunData) {
-    const EAFY = await getEAFY(req);
-    const EFORY = await getEFORY(req);
-    const SOFY = await getSOFY(req);
-    const PSY = await getPSY(req);
-    const SFCY = await getSFCY(req);
-    const EAFKumY = await getKumEAFY(req);
-    const EFORKumY = await getKumEFORY(req);
-    const SOFKumY = await getKumSOFY(req);
-    const PSKumY = await getKumPSY(req);
-    const SFCKumY = await getKumSFCY(req);
-    // console.log(EAF);
+  if (req.query.kpi === "EFOR") {
+    const EFOR = await getEFOR();
+    const EFORKum = await getKumEFOR();
     res.render("pages/kinerja", {
-      EAF: JSON.stringify(EAFY),
-      EFOR: JSON.stringify(EFORY),
-      SOF: JSON.stringify(SOFY),
-      PS: JSON.stringify(PSY),
-      SFC: JSON.stringify(SFCY),
-      EAFKum: JSON.stringify(EAFKumY),
-      EFORKum: JSON.stringify(EFORKumY),
-      SOFKum: JSON.stringify(SOFKumY),
-      PSKum: JSON.stringify(PSKumY),
-      SFCKum: JSON.stringify(SFCKumY),
       user,
+      bulanan: JSON.stringify(EFOR),
+      kumulatif: JSON.stringify(EFORKum),
+      kpi: req.query.kpi,
+    });
+  } else if (req.query.kpi === "SOF") {
+    const SOF = await getSOF();
+    const SOFKum = await getKumSOF();
+    res.render("pages/kinerja", {
+      user,
+      bulanan: JSON.stringify(SOF),
+      kumulatif: JSON.stringify(SOFKum),
+      kpi: req.query.kpi,
+    });
+  } else if (req.query.kpi === "PS") {
+    const PS = await getPS();
+    const PSKum = await getKumPS();
+    res.render("pages/kinerja", {
+      user,
+      bulanan: JSON.stringify(PS),
+      kumulatif: JSON.stringify(PSKum),
+      kpi: req.query.kpi,
+    });
+  } else if (req.query.kpi === "SFC") {
+    const SFC = await getSFC();
+    const SFCKum = await getKumSFC();
+    res.render("pages/kinerja", {
+      user,
+      bulanan: JSON.stringify(SFC),
+      kumulatif: JSON.stringify(SFCKum),
+      kpi: req.query.kpi,
     });
   } else {
     const EAF = await getEAF();
-    const EFOR = await getEFOR();
-    const SOF = await getSOF();
-    const PS = await getPS();
-    const SFC = await getSFC();
     const EAFKum = await getKumEAF();
-    const EFORKum = await getKumEFOR();
-    const SOFKum = await getKumSOF();
-    const PSKum = await getKumPS();
-    const SFCKum = await getKumSFC();
-    // console.log(PS);
     res.render("pages/kinerja", {
-      EAF: JSON.stringify(EAF),
-      EFOR: JSON.stringify(EFOR),
-      SOF: JSON.stringify(SOF),
-      PS: JSON.stringify(PS),
-      SFC: JSON.stringify(SFC),
-      EAFKum: JSON.stringify(EAFKum),
-      EFORKum: JSON.stringify(EFORKum),
-      SOFKum: JSON.stringify(SOFKum),
-      PSKum: JSON.stringify(PSKum),
-      SFCKum: JSON.stringify(SFCKum),
       user,
+      bulanan: JSON.stringify(EAF),
+      kumulatif: JSON.stringify(EAFKum),
+      kpi: "EAF",
     });
   }
 });

@@ -1583,9 +1583,16 @@ tbody tr:hover {
   background-color: white;
 }
 
-/* Location Section  */
+/* Mesin Section  */
 .mesin-section {
   height: 100vh;
   width: 100%;
   background-color: #1c1c1c;
+}
+
+/* Kinerja Section  */
+.kinerja-section {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
 }

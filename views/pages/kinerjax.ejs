@@ -4,6 +4,7 @@
     <%- include('../partials/head') %>
   </head>
   <body>
+    <div class="preloader"></div>
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="" class="logo d-flex align-items-center">
@@ -59,59 +60,71 @@
     <!-- AWAL INPUT  -->
     <main id="main" class="main">
       <div class="container-fluid">
-        <div class="container kinerja">
-          <div class="row">
-            <div class="col-4 my-auto text-center">
-              <p class="kpi" style="font-weight: bolder; font-size: 30px; color: #00a2ba"><%= kpi %></p>
+        <div class="row d-flex">
+          <div class="col-6">
+            <div class="pagetitle">
+              <span style="font-size: 30px; font-weight: lighter">KINERJA</span><span style="font-size: 30px; font-weight: bolder; color: #0d5a71"> ULPLTD KOTAMOBAGU</span>
             </div>
-            <div class="col-4">
-              <form action="/kinerja" method="get" enctype="multipart/form-data">
-                <select id="selectkpi" class="form-select" name="kpi" onchange="this.form.submit()">
-                  <option selected>Pilih KPI</option>
-                  <option>EAF</option>
-                  <option>EFOR</option>
-                  <option>SOF</option>
-                  <option>PS</option>
-                  <option>SFC</option>
-                </select>
-              </form>
+          </div>
+          <div class="col-6 mb-3 d-flex justify-content-end align-content-center">
+            
+            <a href="input" class="btn btn-light me-2" ><i class="bi-box-arrow-in-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"></i></a>
+            <a href="upload-kinerja" class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-kinerja"><i class="bi-upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"></i></a>
+            <a href="detail" class="btn btn-light me-2" ><i class="bi-info-circle"data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"></i></a>
+
+            <form action="/kinerja" method="GET" enctype="multipart/form-data">
+              <select id="selectyear" class="form-select" name="tahunData" onchange="this.form.submit()">
+                <option selected>Pilih Tahun</option>
+                <option>2020</option>
+                <option>2021</option>
+              </select>
+           </form>
+          </div>
+          <!-- <div class="col-6 mb-3 d-flex justify-content-end">
+            <a href="input" class="btn btn-success me-2">Input Data</a>
+            <a href="" class="btn btn-warning me-2">Edit Data</a>
+            <a href="" class="btn btn-danger me-2">Delete Data</a>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- End Page Title -->
+
+      <!-- <div class="container-fluid mt--7">
+            <div class="row">
+              <div class="col-xl-6 mb-5 mb-xl-0">
+                
+              </div>
             </div>
-            <div class="col-4">
-              <div class="d-flex justify-content-center mb-4">
-                <a href="input" class="btn btn-light me-2"><i class="bi-box-arrow-in-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Data"></i></a>
-                <a href="upload-kinerja" class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modal-kinerja"><i class="bi-upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Data"></i></a>
-                <a href="detail" class="btn btn-light me-2"><i class="bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"></i></a>
+        </div> -->
+      <div class="container-fluid mt-7">
+        <div class="row">
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Kinerja Bulanan</h5>
+                      <!-- Line Chart -->
+                      <canvas id="chartEAF" style="max-height: 400px"></canvas>
+                      <script>
+                        const eaf = <%- EAF %>;
+                      </script>
+                      <!-- End Line CHart -->
+                </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <!-- Bordered Tabs Justified -->
-                  <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
-                    <li class="nav-item flex-fill" role="presentation">
-                      <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home" aria-selected="true">Bulanan</button>
-                    </li>
-                    <li class="nav-item flex-fill" role="presentation">
-                      <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Kumulatif</button>
-                    </li>
-                  </ul>
-                  <div class="tab-content pt-2" id="borderedTabJustifiedContent">
-                    <div class="tab-pane fade show active py-3" id="bordered-justified-home" role="tabpanel" aria-labelledby="home-tab">
-                      <canvas id="chartEAF"></canvas>
+                  <h5 class="card-title">Kinerja Kumulatif</h5>
+                      <!-- Line Chart -->
+                      <canvas id="chartEAFKum" style="max-height: 400px"></canvas>
                       <script>
-                        const eaf = <%- bulanan %>;
+                        const eafKum = <%- EAFKum %>;
                       </script>
-                    </div>
-                    <div class="tab-pane fade py-3" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <canvas id="chartEAFKum"></canvas>
-                      <script>
-                        const eafKum = <%- kumulatif %>;
-                      </script>
-                    </div>
-                  </div>
-                  <!-- End Bordered Tabs Justified -->
+                      <!-- End Line CHart -->
                 </div>
               </div>
             </div>
@@ -138,6 +151,7 @@
       </div>
       <!-- Akhir Modal  -->
     </main>
+    <!-- End #main -->
     <!-- AKHIR INPUT  -->
 
     <footer><%- include('../partials/footer') %></footer>
