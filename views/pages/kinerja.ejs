@@ -102,12 +102,16 @@
                       <canvas id="chartEAF"></canvas>
                       <script>
                         const eaf = <%- bulanan %>;
+                        const satuan = <%- satuan %>;
+                        const kpi = <%- JSON.stringify(kpi) %>;
                       </script>
                     </div>
                     <div class="tab-pane fade py-3" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
                       <canvas id="chartEAFKum"></canvas>
                       <script>
                         const eafKum = <%- kumulatif %>;
+                        const satuankum = <%- satuan %>;
+                        const kpikum = <%- JSON.stringify(kpi) %>;
                       </script>
                     </div>
                   </div>

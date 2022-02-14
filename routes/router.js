@@ -291,47 +291,57 @@ router.get("/kinerja", requireAuth, async (req, res) => {
   if (req.query.kpi === "EFOR") {
     const EFOR = await getEFOR();
     const EFORKum = await getKumEFOR();
+    const satuan = "Persen (%)";
     res.render("pages/kinerja", {
       user,
       bulanan: JSON.stringify(EFOR),
       kumulatif: JSON.stringify(EFORKum),
       kpi: req.query.kpi,
+      satuan: JSON.stringify(satuan),
     });
   } else if (req.query.kpi === "SOF") {
     const SOF = await getSOF();
     const SOFKum = await getKumSOF();
+    const satuan = "Persen (%)";
     res.render("pages/kinerja", {
       user,
       bulanan: JSON.stringify(SOF),
       kumulatif: JSON.stringify(SOFKum),
       kpi: req.query.kpi,
+      satuan: JSON.stringify(satuan),
     });
   } else if (req.query.kpi === "PS") {
     const PS = await getPS();
     const PSKum = await getKumPS();
+    const satuan = "Persen (%)";
     res.render("pages/kinerja", {
       user,
       bulanan: JSON.stringify(PS),
       kumulatif: JSON.stringify(PSKum),
       kpi: req.query.kpi,
+      satuan: JSON.stringify(satuan),
     });
   } else if (req.query.kpi === "SFC") {
     const SFC = await getSFC();
     const SFCKum = await getKumSFC();
+    const satuan = "Liter/kWh";
     res.render("pages/kinerja", {
       user,
       bulanan: JSON.stringify(SFC),
       kumulatif: JSON.stringify(SFCKum),
       kpi: req.query.kpi,
+      satuan: JSON.stringify(satuan),
     });
   } else {
     const EAF = await getEAF();
     const EAFKum = await getKumEAF();
+    const satuan = "Persen (%)";
     res.render("pages/kinerja", {
       user,
       bulanan: JSON.stringify(EAF),
       kumulatif: JSON.stringify(EAFKum),
       kpi: "EAF",
+      satuan: JSON.stringify(satuan),
     });
   }
 });

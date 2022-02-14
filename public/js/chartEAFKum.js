@@ -1,3 +1,4 @@
+const yearkum = new Date().getFullYear();
 const chartEAFKum = document.addEventListener("DOMContentLoaded", () => {
   new Chart(document.querySelector("#chartEAFKum"), {
     type: "line",
@@ -5,7 +6,7 @@ const chartEAFKum = document.addEventListener("DOMContentLoaded", () => {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [
         {
-          label: "EAF Kumulatif 2021",
+          label: `${kpikum} ${yearkum}`,
           data: eafKum,
           fill: false,
           backgroundColor: ["rgba(255, 242, 0, 0.8)"],
@@ -21,7 +22,7 @@ const chartEAFKum = document.addEventListener("DOMContentLoaded", () => {
           beginAtZero: true,
           title: {
             display: "true",
-            text: "Persen (%)",
+            text: satuankum,
           },
         },
       },
