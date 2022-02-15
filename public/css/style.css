@@ -1558,6 +1558,24 @@ tbody tr:hover {
 }
 
 /* Company Profile  */
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
 /* Hero Section  */
 .hero-section {
   background-color: #ddeefa;
@@ -1583,6 +1601,10 @@ tbody tr:hover {
   background-color: white;
 }
 
+.location-section img {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
 /* Mesin Section  */
 .mesin-section {
   height: 100vh;
@@ -1596,3 +1618,17 @@ tbody tr:hover {
   width: 100%;
   background-color: white;
 }
+
+.kinerja-section .kpi p {
+  color: #00a1ba;
+  font-size: 30px;
+  font-weight: bolder;
+  background: white;
+  width: 230px;
+  border-radius: 40px;
+  padding: 30px 0px;
+  text-align: center;
+  overflow: hidden;
+}
+
+
