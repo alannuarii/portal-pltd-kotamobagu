@@ -1772,7 +1772,7 @@ tbody tr:hover {
   line-height: 0;
 }
 .portfolio .portfolio-item .portfolio-info .preview-link:hover {
-  color: var(--color-white);
+  color: #00a1ba;
 }
 
 .portfolio .portfolio-item:hover:before {
