@@ -246,7 +246,7 @@ router.get("/data-mesin", requireAuth, async (req, res) => {
 });
 
 // Menampilkan Pages Company Profile
-router.get("/company-profile", requireAuth, (req, res) => {
+router.get("/company-profile", (req, res) => {
   const user = req.user;
   res.render("pages/company-profile", {
     user,
