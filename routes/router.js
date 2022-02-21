@@ -238,15 +238,15 @@ router.get("/detail", requireAuth, async (req, res) => {
 // Menampilkan Pages Data Mesin
 router.get("/data-mesin", requireAuth, async (req, res) => {
   const user = req.user;
-  const getDataMesin = await Mesin.find({});
+  const getDataMesin = await Mesin.find({}).sort({ namaUnit: 1 });
   res.render("pages/data-mesin", {
     dataMesin: getDataMesin,
     user,
   });
 });
 
-router.get("/detail-mesin", async (req, res) => {
-  const mesin = await Mesin.find({});
+router.get("/detail-mesin/:_id", async (req, res) => {
+  const mesin = await Mesin.findOne({ _id: req.params._id });
   res.render("pages/detail-mesin", {
     mesin,
   });

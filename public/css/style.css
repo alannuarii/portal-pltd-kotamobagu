@@ -327,25 +327,48 @@ h6 {
 }
 
 /* Breadcrumbs */
-.breadcrumb {
+.breadcrumbs {
+  padding: 15px 0;
+  background: #1c1c1c7e;
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+.breadcrumbs h2 {
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   font-size: 14px;
-  font-family: "Nunito", sans-serif;
-  color: #899bbd;
-  font-weight: 600;
 }
-.breadcrumb a {
-  color: #899bbd;
-  transition: 0.3s;
+.breadcrumbs ol li + li {
+  padding-left: 10px;
 }
-.breadcrumb a:hover {
-  color: #51678f;
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: var(--color-secondary-light);
+  content: "/";
 }
-.breadcrumb .breadcrumb-item::before {
-  color: #899bbd;
-}
-.breadcrumb .active {
-  color: #51678f;
-  font-weight: 600;
+@media (max-width: 992px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+  .breadcrumbs h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .breadcrumbs ol {
+    display: block;
+  }
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
 }
 
 /* Bordered Tabs */
@@ -1822,3 +1845,27 @@ tbody tr:hover {
 }
 
 /* Detail Mesin  */
+.detail-mesin img {
+  border-radius: 20px;
+}
+
+.detail-mesin .mesin-kit {
+  padding: 30px;
+  box-shadow: 0px 2px 15px #1c1c1c44;
+  background-color: #ffffff;
+}
+.detail-mesin .mesin-kit h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1c1c1c;
+}
+.detail-mesin .mesin-kit ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+.detail-mesin .mesin-kit ul li + li {
+  margin-top: 10px;
+}

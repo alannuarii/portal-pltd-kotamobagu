@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../partials/head') %>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Portal ULPLTD Kotamobagu</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/public/img/logopln.png" rel="icon" />
+    <link href="/public/img/logopln.png" rel="logopln" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <!-- <link href="vendor/quill/quill.snow.css" rel="stylesheet" /> -->
+    <!-- <link href="vendor/quill/quill.bubble.css" rel="stylesheet" /> -->
+    <link href="public/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <!-- <link href="vendor/simple-datatables/style.css" rel="stylesheet" /> -->
+
+    <!-- Template Main CSS File -->
+    <link href="/public/css/style.css" rel="stylesheet" />
+    <link href="/public/css/responsive.css" rel="stylesheet" />
+
+    <!-- Swiper  -->
+    <link href="public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Glightbox -->
+    <link href="public/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+    <!-- AOS  -->
+    <link href="public/vendor/aos/aos.css" rel="stylesheet" />
   </head>
   <body>
     <!-- AWAL INPUT  -->
     <div class="container-fluid detail-mesin">
-      <nav class="navbar navbar-dark bg-info navbar-expand d-md-none d-lg-none d-xl-none fixed-bottom">
+      <nav class="navbar navbar-dark bg-secondary navbar-expand d-lg-none d-xl-none fixed-bottom">
         <ul class="navbar-nav nav-justified w-100">
           <li class="nav-item dropup">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Unit</a>
@@ -20,28 +55,79 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Mesin</a>
+            <a href="#mesin" class="nav-link">Mesin</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Generator</a>
+            <a href="#generator" class="nav-link">Generator</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Trafo</a>
+            <a href="#trafo" class="nav-link">Trafo</a>
           </li>
         </ul>
       </nav>
     </div>
     <!-- Bottom Navbar -->
+
+    <div class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2><%= mesin.namaUnit %></h2>
+        </div>
+      </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <section id="detail-mesin" class="detail-mesin">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <img src="/public/img/unit1.jpg" class="img-fluid" alt="" />
+          </div>
+
+          <div class="col-lg-4">
+            <div class="mesin-kit rounded-3" id="mesin">
+              <h3>Mesin</h3>
+              <ul>
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              </ul>
+            </div>
+
+            <div class="mesin-kit rounded-3 mt-3" id="generator">
+              <h3>Generator</h3>
+              <ul>
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              </ul>
+            </div>
+
+            <div class="mesin-kit rounded-3 mt-3" id="trafo">
+              <h3>Transformator</h3>
+              <ul>
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- AKHIR INPUT  -->
 
     <!-- Awal Footer  -->
     <footer>
       <div class="preloader" style="background: white url(public/img/preloading.gif) no-repeat center center"></div>
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
 
       <!-- Vendor JS Files -->
       <!-- <script src="vendor/apexcharts/apexcharts.min.js"></script> -->
-      <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="public/vendor/typed.js/typed.min.js"></script>
       <script src="public/vendor/swiper/swiper-bundle.min.js"></script>
       <script src="public/vendor/glightbox/js/glightbox.min.js"></script>
@@ -63,7 +149,7 @@
       <script src="public/js/script2.js"></script>
       <script src="public/js/script3.js"></script>
       <script src="public/js/script4.js"></script>
-      <script src="public/js/script5.js"></script>
+      <script src="/public/js/script5.js"></script>
       <script src="public/js/script6.js"></script>
       <script src="public/js/script7.js"></script>
       <script src="public/js/main.js"></script>
