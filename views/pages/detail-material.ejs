@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Portal ULPLTD Kotamobagu</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/public/img/logopln.png" rel="icon" />
+    <link href="/public/img/logopln.png" rel="logopln" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <!-- <link href="vendor/quill/quill.snow.css" rel="stylesheet" /> -->
+    <!-- <link href="vendor/quill/quill.bubble.css" rel="stylesheet" /> -->
+    <link href="public/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <!-- <link href="vendor/simple-datatables/style.css" rel="stylesheet" /> -->
+
+    <!-- Template Main CSS File -->
+    <link href="/public/css/style.css" rel="stylesheet" />
+    <link href="/public/css/responsive.css" rel="stylesheet" />
+
+    <!-- Swiper  -->
+    <link href="public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Glightbox -->
+    <link href="public/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+    <!-- AOS  -->
+    <link href="public/vendor/aos/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- AWAL INPUT  -->
+    <div class="container-fluid detail-mesin">
+      <nav class="navbar navbar-dark bg-secondary navbar-expand d-lg-none d-xl-none fixed-bottom">
+        <ul class="navbar-nav nav-justified w-100">
+          <li class="nav-item dropup">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Unit</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Unit 1</a></li>
+              <li><a class="dropdown-item" href="#">Unit 2</a></li>
+              <li><a class="dropdown-item" href="#">Unit 3</a></li>
+              <li><a class="dropdown-item" href="#">Unit 4</a></li>
+              <li><a class="dropdown-item" href="#">Unit 5</a></li>
+              <li><a class="dropdown-item" href="#">Unit 6</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#mesin" class="nav-link">Mesin</a>
+          </li>
+          <li class="nav-item">
+            <a href="#generator" class="nav-link">Generator</a>
+          </li>
+          <li class="nav-item">
+            <a href="#trafo" class="nav-link">Trafo</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Bottom Navbar -->
+
+    <section id="detail-material" class="detail-material">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-7">
+            <img src="/<%= material.image %>" class="img-fluid" alt="" />
+          </div>
+
+          <div class="col-lg-5">
+            <div class="data-material rounded-3">
+              <h3>Detail Material</h3>
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td>Nomor Material</td>
+                    <td>: <%= material.noMat %></td>
+                  </tr>
+                  <tr>
+                    <td>Deskripsi Material</td>
+                    <td>: <%= material.descMat %></td>
+                  </tr>
+                  <tr>
+                    <td>Stock Material</td>
+                    <td>: <%= material.stock %> <%= material.satuan %></td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal Masuk</td>
+                    <td>: <%= material.dateIn.toUTCString() %></td>
+                  </tr>
+                  <tr>
+                    <td>Harga Satuan</td>
+                    <td>: <%= material.hargaSat %></td>
+                  </tr>
+                  <tr>
+                    <td>Total Harga</td>
+                    <td>: <%= material.totHarga %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="mat-small">
+                <h4 class="fw-bolder">Nomor Material</h4>
+                <p class="mb-4"><%= material.noMat %></p>
+                <h4 class="fw-bolder">Descripsi Material</h4>
+                <p class="mb-4"><%= material.descMat %></p>
+                <h4 class="fw-bolder">Stock Material</h4>
+                <p class="mb-4"><%= material.stock %> <%= material.satuan %></p>
+                <h4 class="fw-bolder">Tanggal Masuk</h4>
+                <p class="mb-4"><%= material.dateIn.toUTCString() %></p>
+                <h4 class="fw-bolder">Harga Satuan</h4>
+                <p class="mb-4"><%= material.hargaSat %></p>
+                <h4 class="fw-bolder">Total Harga</h4>
+                <p class=""><%= material.totHarga %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- AKHIR INPUT  -->
+
+    <!-- Awal Footer  -->
+    <footer>
+      <div class="preloader" style="background: white url(public/img/preloading.gif) no-repeat center center"></div>
+      <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+
+      <!-- Vendor JS Files -->
+      <!-- <script src="vendor/apexcharts/apexcharts.min.js"></script> -->
+      <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="public/vendor/typed.js/typed.min.js"></script>
+      <script src="public/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="public/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="public/vendor/aos/aos.js"></script>
+      <!-- <script src="vendor/chart.js/chart.min.js"></script> -->
+      <!-- <script src="vendor/echarts/echarts.min.js"></script> -->
+      <!-- <script src="vendor/quill/quill.min.js"></script> -->
+      <!-- <script src="vendor/simple-datatables/simple-datatables.js"></script> -->
+      <!-- <script src="vendor/tinymce/tinymce.min.js"></script> -->
+      <!-- <script src="vendor/php-email-form/validate.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0-rc/dist/chartjs-plugin-datalabels.min.js"></script>
+      <script src="http://maps.googleapis.com/maps/api/js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
+      <!-- Template Main JS File -->
+      <script src="public/js/script1.js"></script>
+      <script src="public/js/script2.js"></script>
+      <script src="public/js/script3.js"></script>
+      <script src="public/js/script4.js"></script>
+      <script src="/public/js/script5.js"></script>
+      <script src="public/js/script6.js"></script>
+      <script src="public/js/script7.js"></script>
+      <script src="public/js/main.js"></script>
+      <script src="public/js/chartEAF.js"></script>
+      <script src="public/js/chartEFOR.js"></script>
+      <script src="public/js/chartSOF.js"></script>
+      <script src="public/js/chartPS.js"></script>
+      <script src="public/js/chartSFC.js"></script>
+      <script src="public/js/chartEAFKum.js"></script>
+      <script src="public/js/chartEFORKum.js"></script>
+      <script src="public/js/chartSOFKum.js"></script>
+      <script src="public/js/chartPSKum.js"></script>
+      <script src="public/js/chartSFCKum.js"></script>
+      <script src="public/js/chartEAFU.js"></script>
+      <script src="public/js/chartPSU.js"></script>
+      <script src="public/js/chartSFCU.js"></script>
+      <script src="public/js/chartHOP.js"></script>
+      <script src="public/js/chartProduksi.js"></script>
+      <script src="public/js/maps.js"></script>
+      <script src="public/js/gsap.js"></script>
+      <script src="public/vendor/typed.js/typed.min.js"></script>
+      <!-- <script src="formula.js"></script> -->
+    </footer>
+    <!-- Awal Footer  -->
+  </body>
+</html>

@@ -1388,6 +1388,16 @@ tbody tr:hover {
   opacity: 0;
 }
 
+.detail-pers .bi-info-circle-fill {
+  font-size: 35px;
+  color: white;
+  position: absolute;
+  top: 185px;
+  left: 18px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
 .detail-pers .card:hover i {
   opacity: 1;
 }
@@ -1403,6 +1413,31 @@ tbody tr:hover {
 
 .detail-pers .card:hover {
   transform: scale(1.03);
+}
+
+.detail-material img {
+  border-radius: 20px;
+}
+
+.detail-material .data-material {
+  padding: 30px;
+  box-shadow: 0px 2px 15px #1c1c1c44;
+  background-color: #ffffff;
+}
+.detail-material .data-material h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1c1c1c;
+}
+.detail-material .data-material ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+.detail-material .data-material ul li + li {
+  margin-top: 10px;
 }
 
 /* Proper */

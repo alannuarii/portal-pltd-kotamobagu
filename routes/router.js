@@ -245,6 +245,7 @@ router.get("/data-mesin", requireAuth, async (req, res) => {
   });
 });
 
+// Menampilkan Detail Mesin
 router.get("/detail-mesin/:_id", async (req, res) => {
   const mesin = await Mesin.findOne({ _id: req.params._id });
   res.render("pages/detail-mesin", {
@@ -551,6 +552,14 @@ router.get("/material-keluar", requireAuth, async (req, res) => {
   res.render("pages/material-keluar", {
     user,
     materialOut,
+  });
+});
+
+// Menampilkan Detail Mesin
+router.get("/detail-material/:_id", async (req, res) => {
+  const material = await Pers.findOne({ _id: req.params._id });
+  res.render("pages/detail-material", {
+    material,
   });
 });
 

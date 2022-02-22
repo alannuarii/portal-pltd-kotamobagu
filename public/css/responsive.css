@@ -21,3 +21,22 @@
     margin-bottom: 75px;
   }
 }
+
+/* Detail Material */
+@media (min-width: 576px) {
+  .data-material .mat-small {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .data-material {
+    margin-bottom: 75px;
+  }
+}
+
+@media (max-width: 576px) {
+  .data-material .table {
+    display: none;
+  }
+}
