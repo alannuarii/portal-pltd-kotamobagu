@@ -1912,3 +1912,11 @@ tbody tr:hover {
 .detail-mesin .mesin-kit ul li + li {
   margin-top: 10px;
 }
+
+/* Login  */
+.login a:hover {
+  background-color: #1c1c1cc7;
+  box-shadow: 10px 10px 0px #00a1baad;
+  top: -5px;
+  left: -5px;
+}
