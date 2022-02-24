@@ -1440,6 +1440,14 @@ tbody tr:hover {
   margin-top: 10px;
 }
 
+.detail-material .data-material td {
+  padding: 15px 0px 15px 10px;
+}
+
+.detail-material .img-mat {
+  margin-top: 0px;
+}
+
 /* Proper */
 .proper .card {
   background: rgb(238, 238, 238);
