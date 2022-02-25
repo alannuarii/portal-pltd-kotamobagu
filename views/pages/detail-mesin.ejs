@@ -18,7 +18,7 @@
 
     <!-- Vendor CSS Files -->
     <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <!-- <link href="vendor/quill/quill.snow.css" rel="stylesheet" /> -->
     <!-- <link href="vendor/quill/quill.bubble.css" rel="stylesheet" /> -->
@@ -40,6 +40,20 @@
   </head>
   <body>
     <!-- AWAL INPUT  -->
+    <!-- Awal Nav Menu  -->
+    <header id="header" class="d-flex flex-column justify-content-start">
+      <nav id="navbar" class="navbar nav-menu">
+        <ul>
+          <li>
+            <a href="/data-mesin" class="nav-link scrollto"><i class="bi-arrow-left-circle"></i> <span>Back</span></a>
+          </li>
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </header>
+    <!-- End Header -->
+    <!-- Akhir Nav Menu -->
+
     <div class="container-fluid detail-mesin">
       <nav class="navbar navbar-dark bg-secondary navbar-expand d-lg-none d-xl-none fixed-bottom">
         <ul class="navbar-nav nav-justified w-100">
@@ -81,7 +95,7 @@
       <div class="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-8">
-            <img src="/public/img/unit1.jpg" class="img-fluid" alt="" />
+            <img src="/public/img/mesin/<%=mesin.serialNumber%>.jpg" class="img-fluid" alt="" />
           </div>
 
           <div class="col-lg-4">

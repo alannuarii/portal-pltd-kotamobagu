@@ -18,7 +18,7 @@
 
     <!-- Vendor CSS Files -->
     <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <!-- <link href="vendor/quill/quill.snow.css" rel="stylesheet" /> -->
     <!-- <link href="vendor/quill/quill.bubble.css" rel="stylesheet" /> -->
@@ -40,6 +40,20 @@
   </head>
   <body>
     <!-- AWAL INPUT  -->
+    <!-- Awal Nav Menu  -->
+    <header id="header" class="d-flex flex-column justify-content-start">
+      <nav id="navbar" class="navbar nav-menu">
+        <ul>
+          <li>
+            <a href="/detail-persediaan" class="nav-link scrollto"><i class="bi-arrow-left-circle"></i> <span>Back</span></a>
+          </li>
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </header>
+    <!-- End Header -->
+    <!-- Akhir Nav Menu -->
+
     <div class="container-fluid detail-mesin">
       <nav class="navbar navbar-dark bg-secondary navbar-expand d-lg-none d-xl-none fixed-bottom">
         <ul class="navbar-nav nav-justified w-100">
@@ -85,28 +99,28 @@
               <table class="table table-borderless">
                 <tbody>
                   <tr>
-                    <td>Nomor Material</td>
+                    <td><strong>Nomor Material</strong></td>
                     <td>: <%= material.noMat %></td>
                   </tr>
                   <tr>
-                    <td>Deskripsi Material</td>
+                    <td><strong>Deskripsi Material</strong></td>
                     <td>: <%= material.descMat %></td>
                   </tr>
                   <tr>
-                    <td>Stock Material</td>
+                    <td><strong>Stock Material</strong></td>
                     <td>: <%= material.stock %> <%= material.satuan %></td>
                   </tr>
                   <tr>
-                    <td>Tanggal Masuk</td>
+                    <td><strong>Tanggal Masuk</strong></td>
                     <td>: <%= material.dateIn.toUTCString() %></td>
                   </tr>
                   <tr>
-                    <td>Harga Satuan</td>
-                    <td>: <%= material.hargaSat %></td>
+                    <td><strong>Harga Satuan</strong></td>
+                    <td>: Rp <%= material.hargaSat.toLocaleString() %></td>
                   </tr>
                   <tr>
-                    <td>Total Harga</td>
-                    <td>: <%= material.totHarga %></td>
+                    <td><strong>Total Harga</strong></td>
+                    <td>: Rp <%= material.totHarga.toLocaleString() %></td>
                   </tr>
                 </tbody>
               </table>
