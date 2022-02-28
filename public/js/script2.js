@@ -11,7 +11,7 @@ const showmodalslo = (i) => {
   return `<div class="container-fluid">
     <div class="row">
       <div class="col-md">
-        <img src="img/slo${i + 1}.png" class="img-fluid" />
+        <img src="public/img/slo${i + 1}.png" class="img-fluid" />
         </div>
     </div>
   </div>`;

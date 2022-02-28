@@ -1649,7 +1649,7 @@ tbody tr:hover {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 9997;
+  z-index: 996;
   /* transition: all 0.5s; */
   padding: 15px;
   /* overflow-y: auto; */
