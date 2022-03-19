@@ -17,7 +17,7 @@ const chartProduksi = document.addEventListener("DOMContentLoaded", () => {
         },
       ],
     },
-    plugins: [ChartDataLabels],
+    // plugins: [ChartDataLabels],
     options: {
       responsive: true,
       indexAxis: "x",
